@@ -1,3 +1,15 @@
 import React from 'react'
-const Home = () => <div>home</div>
+
+// Components
+import Input from 'components/input'
+
+const Home = () => (
+  <div>
+    home
+    <Input maxlength={20} />
+    <Input value="testing" maxlength={10} />
+    <Input />
+  </div>
+)
+
 export default Home

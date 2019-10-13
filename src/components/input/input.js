@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 
-const Input = ({id, maxlength, name, type, value}) => {
+const Input = ({id, maxlength, type, value}) => {
   const [count, setCount] = useState(maxlength - value.length)
   const [inputValue, setValue] = useState(value)
 
@@ -10,7 +10,6 @@ const Input = ({id, maxlength, name, type, value}) => {
       <input
         id={id}
         maxLength={maxlength}
-        name={name}
         value={inputValue}
         type={type}
         onChange={event => {
@@ -28,7 +27,6 @@ const Input = ({id, maxlength, name, type, value}) => {
 Input.propTypes = {
   id: PropTypes.string,
   maxlength: PropTypes.number,
-  name: PropTypes.string,
   type: PropTypes.string,
   value: PropTypes.string
 }

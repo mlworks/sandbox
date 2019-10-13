@@ -1,12 +1,12 @@
 import React from 'react'
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 // Pages
 import Home from './pages/home'
 
 const App = () => (
   <Router>
-    <Link to="/">Home</Link>
+    <div>app header</div>
     <Switch>
       <Route exact path="/">
         <Home />
