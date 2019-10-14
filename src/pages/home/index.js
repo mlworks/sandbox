@@ -6,9 +6,9 @@ import Input from 'components/input'
 const Home = () => (
   <div>
     home
-    <Input maxlength={20} />
-    <Input value="testing" maxlength={10} />
-    <Input />
+    <Input maxLength={20} />
+    <Input value="testing" maxLength={10} />
+    <Input placeholder="Test" />
   </div>
 )
 
