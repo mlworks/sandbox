@@ -17,7 +17,13 @@ const Form = () => {
         }}
       >
         <label htmlFor="search">Search</label>
-        <Input id="search" value={value} maxLength={20} onChange={setValue} />
+        <Input
+          id="search"
+          value={value}
+          maxLength={20}
+          placeholder="Search for something..."
+          onChange={setValue}
+        />
         {!!value.length && (
           <button onClick={() => setValue('')} type="button">
             Clear input
