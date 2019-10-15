@@ -1,20 +1,18 @@
 import React, {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 
-const Input = ({defaultValue, maxLength, type, value, onChange, ...props}) => {
-  const inputValue = defaultValue || value || ''
-  const [count, setCount] = useState(maxLength - inputValue.length)
+const Input = ({maxLength, type, value, onChange, ...props}) => {
+  const [count, setCount] = useState(maxLength - value.length)
 
   useEffect(() => {
-    setCount(inputValue.length)
-  }, [maxLength, inputValue])
+    setCount(value.length)
+  }, [maxLength, value])
 
   return (
     <React.Fragment>
       <input
         {...props}
         aria-describedby={maxLength && 'char-limit'}
-        defaultValue={defaultValue}
         maxLength={maxLength}
         value={value}
         type={type}
@@ -36,7 +34,6 @@ const Input = ({defaultValue, maxLength, type, value, onChange, ...props}) => {
 }
 
 Input.propTypes = {
-  defaultValue: PropTypes.string,
   maxLength: PropTypes.number,
   type: PropTypes.string,
   value: PropTypes.string,
@@ -45,6 +42,7 @@ Input.propTypes = {
 
 Input.defaultProps = {
   type: 'text',
+  value: '',
   onChange: () => {},
 }
 
