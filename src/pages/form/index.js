@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 
 // Components
 import Input from 'components/input'
+import Spacing from 'components/spacing'
 
 const Form = () => {
   const [value, setValue] = useState('')
@@ -33,7 +34,7 @@ const Form = () => {
           Submit
         </button>
       </form>
-      {searchTerm && <div>Searching: {searchTerm}</div>}
+      {searchTerm && <Spacing marginTop="lg">Searching: {searchTerm}</Spacing>}
     </React.Fragment>
   )
 }
