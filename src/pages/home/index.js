@@ -1,15 +1,20 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 // Components
 import Input from 'components/input'
 
-const Home = () => (
-  <div>
-    home
-    <Input maxLength={20} />
-    <Input value="testing" maxLength={10} />
-    <Input placeholder="Test" />
-  </div>
-)
+const Home = () => {
+  const [value, setValue] = useState('')
+
+  return (
+    <div>
+      home
+      <Input value={value} maxLength={20} onChange={setValue} />
+      <button onClick={() => setValue('')} type="button">
+        Clear input
+      </button>
+    </div>
+  )
+}
 
 export default Home
