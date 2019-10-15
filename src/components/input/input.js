@@ -6,23 +6,31 @@ const Input = ({defaultValue, maxLength, type, value, onChange, ...props}) => {
   const [count, setCount] = useState(maxLength - inputValue.length)
 
   useEffect(() => {
-    setCount(maxLength - inputValue.length)
+    setCount(inputValue.length)
   }, [maxLength, inputValue])
 
   return (
     <React.Fragment>
       <input
         {...props}
+        aria-describedby={maxLength && 'char-limit'}
         defaultValue={defaultValue}
         maxLength={maxLength}
         value={value}
         type={type}
         onChange={event => {
-          setCount(maxLength - event.target.value.length)
+          setCount(event.target.value.length)
           onChange(event.target.value)
         }}
       />
-      {maxLength && <span>{count} characters left</span>}
+      {maxLength && (
+        <span
+          id="char-limit"
+          aria-label={`${maxLength - count} characters remaining`}
+        >
+          {count}/{maxLength}
+        </span>
+      )}
     </React.Fragment>
   )
 }
