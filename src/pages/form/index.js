@@ -11,7 +11,7 @@ const Form = () => {
 
   return (
     <React.Fragment>
-      <Modal effect="slide">
+      <Modal effect="dialog" title="Form example">
         <form
           onSubmit={event => {
             event.preventDefault()
