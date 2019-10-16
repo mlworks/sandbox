@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import FlexBox from 'components/flex-box'
 
 const justifyMap = {
-  'slide-top': 'initial',
+  'slide-top': 'center',
   'slide-left': 'flex-start',
   'slide-right': 'flex-end',
-  'slide-bottom': 'initial',
+  'slide-bottom': 'center',
   dialog: 'center',
 }
 
@@ -32,6 +32,7 @@ const ModalPaneSC = styled(FlexBox).attrs(({effect}) => ({
   left: ${({coverage, effect}) =>
     `${buildPosition(effect, coverage, 'slide-right')}%`};
   z-index: 1000;
+
   pointer-events: none;
 `
 

@@ -32,7 +32,7 @@ const ModalPaneTransition = styled(CSSTransition).attrs({
   &.${exit} {
     opacity: 1;
     transform: translate3d(0, 0, 0);
-    transition: transform 200ms ease-out, opacity ${200 / 2}ms ease-out;
+    transition: transform 200ms ease-out, opacity 100ms ease-out;
   }
 
   &.${exitActive} {
