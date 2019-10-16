@@ -16,23 +16,27 @@ const transformMap = {
 
 const ModalPaneTransition = styled(CSSTransition).attrs({
   classNames: animationClassName,
-  timeout: 100,
+  timeout: 200,
 })`
   &.${enter} {
+    opacity: 0;
     transform: ${({effect}) => transformMap[effect]};
   }
 
   &.${enterActive} {
+    opacity: 1;
     transform: translate3d(0, 0, 0);
-    transition: transform 10000ms ease-out;
+    transition: transform 200ms ease-out, opacity 200ms ease-out;
   }
 
   &.${exit} {
+    opacity: 1;
     transform: translate3d(0, 0, 0);
-    transition: transform 150ms ease-out, opacity ${150 / 2}ms ease-out;
+    transition: transform 200ms ease-out, opacity ${200 / 2}ms ease-out;
   }
 
   &.${exitActive} {
+    opacity: 0;
     transform: ${({effect}) => transformMap[effect]};
   }
 `
