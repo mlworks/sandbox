@@ -12,6 +12,7 @@ import Spacing from 'components/spacing'
 
 const App = () => {
   const [isOpen, toggleModal] = useState(false)
+  const dismissModal = () => toggleModal(false)
 
   return (
     <Router>
@@ -19,25 +20,26 @@ const App = () => {
         Open Navigation
       </button>
       <Modal
-        isOpen={isOpen}
         coverage={40}
         effect="slide-left"
-        onDismiss={() => toggleModal(!isOpen)}
+        isOpen={isOpen}
+        title="Navigation"
+        onDismiss={dismissModal}
       >
         <Spacing padding="lg">
           <nav>
             <Spacing marginBottom="lg">
-              <Link to="/" onClick={() => toggleModal(false)}>
+              <Link to="/" onClick={dismissModal}>
                 Home
               </Link>
             </Spacing>
             <Spacing marginBottom="lg">
-              <Link to="/form" onClick={() => toggleModal(false)}>
+              <Link to="/form" onClick={dismissModal}>
                 Form
               </Link>
             </Spacing>
             <Spacing marginBottom="lg">
-              <Link to="/modal" onClick={() => toggleModal(false)}>
+              <Link to="/modal" onClick={dismissModal}>
                 Modal
               </Link>
             </Spacing>

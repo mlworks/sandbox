@@ -30,8 +30,8 @@ const Modal = ({children, coverage, effect, isOpen, title, onDismiss}) => (
           <ModalPaneSC effect={effect} coverage={coverage}>
             <ModalInnerSC>
               <ModalHeaderSC>
-                <FlexItem>
-                  <h1>{title}</h1>
+                <FlexItem padding="lg">
+                  <h2>{title}</h2>
                 </FlexItem>
                 <FlexItem flex="0 0 auto">
                   <button type="button" onClick={onDismiss}>

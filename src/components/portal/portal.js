@@ -11,8 +11,6 @@ class Portal extends React.Component {
     super(props)
     this.domNode = document.createElement('div')
     this.portalRoot = document.getElementById(this.props.id)
-
-    this.state = {}
   }
 
   componentDidMount() {
