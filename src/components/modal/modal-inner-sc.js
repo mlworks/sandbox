@@ -6,6 +6,7 @@ const ModalInnerSC = styled.article`
   flex: 1 1 auto;
   background: white;
   box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.6);
+  pointer-events: auto;
 `
 
 export default ModalInnerSC

@@ -9,6 +9,8 @@ const ModalOverlaySC = styled.div`
   z-index: 1000;
 
   background-color: rgba(0, 0, 0, 0.7);
+
+  cursor: pointer;
 `
 
 export default ModalOverlaySC

@@ -8,10 +8,19 @@ import Spacing from 'components/spacing'
 const Form = () => {
   const [value, setValue] = useState('')
   const [searchTerm, setSearchTerm] = useState('')
+  const [isOpen, toggleModal] = useState(false)
 
   return (
     <React.Fragment>
-      <Modal effect="dialog" title="Form example">
+      <button type="button" onClick={() => toggleModal(!isOpen)}>
+        toggle modal
+      </button>
+      <Modal
+        isOpen={isOpen}
+        effect="dialog"
+        title="Form example"
+        onDismiss={() => toggleModal(!isOpen)}
+      >
         <form
           onSubmit={event => {
             event.preventDefault()

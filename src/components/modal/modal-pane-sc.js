@@ -32,6 +32,7 @@ const ModalPaneSC = styled(FlexBox).attrs(({effect}) => ({
   left: ${({coverage, effect}) =>
     `${buildPosition(effect, coverage, 'slide-right')}%`};
   z-index: 1000;
+  pointer-events: none;
 `
 
 export default ModalPaneSC

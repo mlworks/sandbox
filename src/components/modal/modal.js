@@ -12,24 +12,28 @@ import ModalInnerSC from './modal-inner-sc'
 import ModalOverlaySC from './modal-overlay-sc'
 import ModalPaneSC from './modal-pane-sc'
 
-const Modal = ({children, coverage, effect, title, onDismiss}) => (
+const Modal = ({children, coverage, effect, isOpen, title, onDismiss}) => (
   <Portal id="modal-root">
-    <ModalOverlaySC aria-hidden role="presentation" onClick={onDismiss} />
-    <ModalPaneSC effect={effect} coverage={coverage}>
-      <ModalInnerSC>
-        <ModalHeaderSC>
-          <FlexItem>
-            <h1>{title}</h1>
-          </FlexItem>
-          <FlexItem flex="0 0 auto">
-            <button type="button" onClick={onDismiss}>
-              Close
-            </button>
-          </FlexItem>
-        </ModalHeaderSC>
-        <ModalContentSC>{children}</ModalContentSC>
-      </ModalInnerSC>
-    </ModalPaneSC>
+    {isOpen && (
+      <ModalOverlaySC aria-hidden role="presentation" onClick={onDismiss} />
+    )}
+    {isOpen && (
+      <ModalPaneSC effect={effect} coverage={coverage}>
+        <ModalInnerSC>
+          <ModalHeaderSC>
+            <FlexItem>
+              <h1>{title}</h1>
+            </FlexItem>
+            <FlexItem flex="0 0 auto">
+              <button type="button" onClick={onDismiss}>
+                Close
+              </button>
+            </FlexItem>
+          </ModalHeaderSC>
+          <ModalContentSC>{children}</ModalContentSC>
+        </ModalInnerSC>
+      </ModalPaneSC>
+    )}
   </Portal>
 )
 
@@ -37,6 +41,7 @@ Modal.propTypes = {
   children: PropTypes.node,
   coverage: PropTypes.number,
   effect: PropTypes.string,
+  isOpen: PropTypes.bool,
   title: PropTypes.string,
   onDismiss: PropTypes.func,
 }
