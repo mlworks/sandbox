@@ -1,4 +1,5 @@
 import React from 'react'
+import {TransitionGroup} from 'react-transition-group'
 import PropTypes from 'prop-types'
 
 // Component
@@ -12,28 +13,38 @@ import ModalInnerSC from './modal-inner-sc'
 import ModalOverlaySC from './modal-overlay-sc'
 import ModalPaneSC from './modal-pane-sc'
 
+// Transitions
+import ModalPaneTransition from './modal-pane-transition'
+import ModalOverlayTransition from './modal-overlay-transition'
+
 const Modal = ({children, coverage, effect, isOpen, title, onDismiss}) => (
   <Portal id="modal-root">
-    {isOpen && (
-      <ModalOverlaySC aria-hidden role="presentation" onClick={onDismiss} />
-    )}
-    {isOpen && (
-      <ModalPaneSC effect={effect} coverage={coverage}>
-        <ModalInnerSC>
-          <ModalHeaderSC>
-            <FlexItem>
-              <h1>{title}</h1>
-            </FlexItem>
-            <FlexItem flex="0 0 auto">
-              <button type="button" onClick={onDismiss}>
-                Close
-              </button>
-            </FlexItem>
-          </ModalHeaderSC>
-          <ModalContentSC>{children}</ModalContentSC>
-        </ModalInnerSC>
-      </ModalPaneSC>
-    )}
+    <TransitionGroup component={null}>
+      {isOpen && (
+        <ModalOverlayTransition>
+          <ModalOverlaySC aria-hidden role="presentation" onClick={onDismiss} />
+        </ModalOverlayTransition>
+      )}
+      {isOpen && (
+        <ModalPaneTransition effect={effect}>
+          <ModalPaneSC effect={effect} coverage={coverage}>
+            <ModalInnerSC>
+              <ModalHeaderSC>
+                <FlexItem>
+                  <h1>{title}</h1>
+                </FlexItem>
+                <FlexItem flex="0 0 auto">
+                  <button type="button" onClick={onDismiss}>
+                    Close
+                  </button>
+                </FlexItem>
+              </ModalHeaderSC>
+              <ModalContentSC>{children}</ModalContentSC>
+            </ModalInnerSC>
+          </ModalPaneSC>
+        </ModalPaneTransition>
+      )}
+    </TransitionGroup>
   </Portal>
 )
 

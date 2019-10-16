@@ -9,15 +9,26 @@ const Form = () => {
   const [value, setValue] = useState('')
   const [searchTerm, setSearchTerm] = useState('')
   const [isOpen, toggleModal] = useState(false)
+  const [effect, setModalEffect] = useState('dialog')
 
   return (
     <React.Fragment>
       <button type="button" onClick={() => toggleModal(!isOpen)}>
         toggle modal
       </button>
+      <select
+        value={effect}
+        onChange={event => setModalEffect(event.target.value)}
+      >
+        <option value="dialog">Dialog</option>
+        <option value="slide-top">Slide Down</option>
+        <option value="slide-left">Slide Right</option>
+        <option value="slide-right">Slide Left</option>
+        <option value="slide-bottom">Slide Up</option>
+      </select>
       <Modal
         isOpen={isOpen}
-        effect="dialog"
+        effect={effect}
         title="Form example"
         onDismiss={() => toggleModal(!isOpen)}
       >
