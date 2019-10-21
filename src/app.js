@@ -46,7 +46,7 @@ const App = () => {
         </Spacing>
       </Modal>
 
-      <Spacing padding="lg">
+      <Spacing className="app-contents" margin="0 auto" padding="xlg lg">
         <Switch>
           <Route exact path="/">
             <Home />

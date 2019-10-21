@@ -39,3 +39,7 @@ textarea {
   background: #fafafa;
   outline: 0;
 }
+
+.app-contents {
+  max-width: 640px;
+}
