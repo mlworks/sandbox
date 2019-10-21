@@ -11,7 +11,6 @@ const ModalHeaderSC = styled.header`
   color: #fff;
 
   h2 {
-    margin: 0;
     font-size: 18px;
   }
 `

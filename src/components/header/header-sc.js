@@ -13,7 +13,6 @@ const HeaderSC = styled(FlexBox).attrs({
   background: #fafafa;
 
   h1 {
-    margin: 0;
     font-size: 20px;
   }
 `
