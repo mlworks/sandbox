@@ -28,7 +28,7 @@ const Input = ({maxLength, type, value, onChange, ...props}) => {
           type={type}
           onChange={event => {
             setCount(event.target.value.length)
-            onChange(event.target.value)
+            onChange(event)
           }}
         />
       </FlexItem>
@@ -48,7 +48,7 @@ const Input = ({maxLength, type, value, onChange, ...props}) => {
 Input.propTypes = {
   maxLength: PropTypes.number,
   type: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onChange: PropTypes.func,
 }
 

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 // Component
 import Button from 'components/button'
 import FlexItem from 'components/flex-item'
+import MaterialIcon from 'components/material-icon'
 import Portal from 'components/portal'
 
 // SC
@@ -51,7 +52,7 @@ const Modal = ({children, coverage, effect, isOpen, title, onDismiss}) => (
                     title="Dismiss Modal"
                     aria-label="Dismiss Modal"
                   >
-                    <i className="material-icons">&#xE5CD;</i>
+                    <MaterialIcon charCode="e5cd" />
                   </Button>
                 </FlexItem>
               </ModalHeaderSC>
