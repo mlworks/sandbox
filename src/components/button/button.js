@@ -13,7 +13,7 @@ const ButtonSC = styled.button.attrs(props => ({
   border-radius: ${border.radius};
 
   background: none;
-  outline: none;
+
   color: inherit;
   cursor: pointer;
 
@@ -21,7 +21,7 @@ const ButtonSC = styled.button.attrs(props => ({
   -webkit-appearance: none;
 
   &:active,
-  &:focus {
+  &:hover {
     background: rgba(0, 0, 0, 0.1);
   }
 
