@@ -6,6 +6,7 @@ import Field from 'components/field'
 import FieldRow from 'components/field-row'
 import Input from 'components/input'
 import Modal from 'components/modal'
+import Select from 'components/select'
 import Spacing from 'components/spacing'
 
 const ModalExample = () => {
@@ -90,7 +91,7 @@ const ModalExample = () => {
           label="Modal Coverage"
           caption={`Coverage: ${coverage}%`}
         >
-          <input
+          <Input
             id="coverage"
             type="range"
             min="50"
@@ -102,17 +103,33 @@ const ModalExample = () => {
         </Field>
 
         <Field id="effect" label="Modal Animation Style">
-          <select
+          <Select
             id="effect"
+            options={[
+              {
+                value: 'dialog',
+                label: 'Dialog',
+              },
+              {
+                value: 'slide-top',
+                label: 'Slide From Top',
+              },
+              {
+                value: 'slide-left',
+                label: 'Slide From Left',
+              },
+              {
+                value: 'slide-right',
+                label: 'Slide From Right',
+              },
+              {
+                value: 'slide-bottom',
+                label: 'Slide From Bottom',
+              },
+            ]}
             value={effect}
             onChange={event => setModalEffect(event.target.value)}
-          >
-            <option value="dialog">Dialog</option>
-            <option value="slide-top">Slide From Top</option>
-            <option value="slide-left">Slide From Left</option>
-            <option value="slide-right">Slide From Right</option>
-            <option value="slide-bottom">Slide From Bottom</option>
-          </select>
+          />
         </Field>
       </FieldRow>
 

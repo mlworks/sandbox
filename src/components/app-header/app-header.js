@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 // Components
 import Button from 'components/button'
 import FlexItem from 'components/flex-item'
+import MaterialIcon from 'components/material-icon'
 import Modal from 'components/modal'
 import NavItem from 'components/nav-item'
 
@@ -30,7 +31,7 @@ const AppHeader = () => {
             title="Open Navigation"
             aria-label="Open Navigation"
           >
-            <i className="material-icons">&#xE5D2;</i>
+            <MaterialIcon charCode="e5d2" />
           </Button>
         </FlexItem>
         <FlexItem>

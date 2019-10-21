@@ -28,7 +28,7 @@ const Form = () => {
               value={value}
               maxLength={20}
               placeholder="Search for something..."
-              onChange={setValue}
+              onChange={event => setValue(event.target.value)}
             />
             {!!value.length && (
               <Button onClick={() => setValue('')}>Clear input</Button>
