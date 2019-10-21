@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 // Components
-import FlexBox from 'components/flex-box'
 import FlexItem from 'components/flex-item'
 
 // SC

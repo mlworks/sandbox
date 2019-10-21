@@ -1,6 +1,14 @@
 import React, {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 
+// Components
+import FlexBox from 'components/flex-box'
+import FlexItem from 'components/flex-item'
+
+// SC
+import InputSC from './input-sc'
+import InputCounterSC from './input-counter-sc'
+
 const Input = ({maxLength, type, value, onChange, ...props}) => {
   const [count, setCount] = useState(maxLength - value.length)
 
@@ -9,27 +17,29 @@ const Input = ({maxLength, type, value, onChange, ...props}) => {
   }, [maxLength, value])
 
   return (
-    <React.Fragment>
-      <input
-        {...props}
-        aria-describedby={maxLength && 'char-limit'}
-        maxLength={maxLength}
-        value={value}
-        type={type}
-        onChange={event => {
-          setCount(event.target.value.length)
-          onChange(event.target.value)
-        }}
-      />
+    <FlexBox>
+      <FlexItem>
+        <InputSC
+          {...props}
+          aria-describedby={maxLength && 'char-limit'}
+          maxLength={maxLength}
+          value={value}
+          type={type}
+          onChange={event => {
+            setCount(event.target.value.length)
+            onChange(event.target.value)
+          }}
+        />
+      </FlexItem>
       {maxLength && (
-        <span
+        <InputCounterSC
           id="char-limit"
           aria-label={`${maxLength - count} characters remaining`}
         >
           {count}/{maxLength}
-        </span>
+        </InputCounterSC>
       )}
-    </React.Fragment>
+    </FlexBox>
   )
 }
 

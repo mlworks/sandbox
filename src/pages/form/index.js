@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 
 // Components
+import Field from 'components/field'
+import FieldRow from 'components/field-row'
 import Input from 'components/input'
 import Spacing from 'components/spacing'
 
@@ -17,19 +19,23 @@ const Form = () => {
           setValue('')
         }}
       >
-        <label htmlFor="search">Search</label>
-        <Input
-          id="search"
-          value={value}
-          maxLength={20}
-          placeholder="Search for something..."
-          onChange={setValue}
-        />
-        {!!value.length && (
-          <button onClick={() => setValue('')} type="button">
-            Clear input
-          </button>
-        )}
+        <FieldRow>
+          <Field label="Search" id="search">
+            <Input
+              id="search"
+              value={value}
+              maxLength={20}
+              placeholder="Search for something..."
+              onChange={setValue}
+            />
+            {!!value.length && (
+              <button onClick={() => setValue('')} type="button">
+                Clear input
+              </button>
+            )}
+          </Field>
+        </FieldRow>
+
         <button disabled={!value.length} type="submit">
           Submit
         </button>

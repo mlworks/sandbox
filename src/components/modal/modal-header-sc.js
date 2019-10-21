@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 const ModalHeaderSC = styled.header`
-  box-sizing: border-box;
   display: flex;
   align-items: center;
   flex: 0 0 auto;
