@@ -31,7 +31,7 @@ const Modal = ({children, coverage, effect, isOpen, title, onDismiss}) => (
             <ModalInnerSC>
               <ModalHeaderSC>
                 <FlexItem padding="lg">
-                  <h2>{title}</h2>
+                  <h2 id="modal-label">{title}</h2>
                 </FlexItem>
                 <FlexItem flex="0 0 auto">
                   <button type="button" onClick={onDismiss}>
@@ -39,7 +39,7 @@ const Modal = ({children, coverage, effect, isOpen, title, onDismiss}) => (
                   </button>
                 </FlexItem>
               </ModalHeaderSC>
-              <ModalContentSC>{children}</ModalContentSC>
+              <ModalContentSC id="modal-desc">{children}</ModalContentSC>
             </ModalInnerSC>
           </ModalPaneSC>
         </ModalPaneTransition>

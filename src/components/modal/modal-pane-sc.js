@@ -21,6 +21,10 @@ const buildPosition = (effect, coverage, direction) => {
 const ModalPaneSC = styled(FlexBox).attrs(({effect}) => ({
   alignItems: effect === 'dialog' ? 'center' : 'stretch',
   justifyContent: justifyMap[effect],
+  'aria-modal': true,
+  'aria-labelledby': 'modal-label',
+  'aria-describedby': 'modal-desc',
+  role: 'dialog',
 }))`
   position: fixed;
   top: ${({coverage, effect}) =>
