@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 // Components
 import Field from 'components/field'
 import FieldRow from 'components/field-row'
+import Modal from 'components/modal'
 import Input from 'components/input'
 import Spacing from 'components/spacing'
 
@@ -40,7 +41,14 @@ const Form = () => {
           Submit
         </button>
       </form>
-      {searchTerm && <Spacing marginTop="lg">Searching: {searchTerm}</Spacing>}
+
+      <Modal
+        title={`Searching for "${searchTerm}"`}
+        isOpen={!!searchTerm}
+        onDismiss={() => setSearchTerm('')}
+      >
+        <Spacing padding="lg">Loading...</Spacing>
+      </Modal>
     </React.Fragment>
   )
 }
