@@ -3,16 +3,19 @@ import styled from 'styled-components'
 // Components
 import FlexBox from 'components/flex-box'
 
+// Constants
+import {border, colors, fontSizes, layout, neutrals} from 'constants/styles'
+
 const HeaderSC = styled(FlexBox).attrs({
   alignItems: 'center',
 })`
-  min-height: 64px;
-  border-top: 4px solid #bc1515;
-  border-bottom: 1px solid #dfdfdf;
-  background: #fafafa;
+  min-height: ${layout.headerHeight};
+  border-top: ${layout.subUnit} solid ${colors.accentRed};
+  border-bottom: ${border.shorthand};
+  background: ${neutrals.neutral10};
 
   h1 {
-    font-size: 20px;
+    font-size: ${fontSizes.huge};
   }
 `
 

@@ -3,9 +3,12 @@ import styled from 'styled-components'
 // Component
 import FlexItem from 'components/flex-item'
 
+// Constants
+import {spacing} from 'constants/styles'
+
 const FieldSC = styled(FlexItem)`
   & + & {
-    margin-left: 16px;
+    margin-left: ${spacing.lg};
   }
 `
 

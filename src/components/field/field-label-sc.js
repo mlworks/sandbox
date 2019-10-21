@@ -1,9 +1,12 @@
 import styled from 'styled-components'
 
+// Constants
+import {fontSizes, spacing} from 'constants/styles'
+
 const FieldLabelSC = styled.label`
   display: inline-block;
-  margin-bottom: 4px;
-  font-size: 14px;
+  margin-bottom: ${spacing.sm};
+  font-size: ${fontSizes.md};
 `
 
 export default FieldLabelSC

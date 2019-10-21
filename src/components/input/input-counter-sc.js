@@ -3,6 +3,9 @@ import styled from 'styled-components'
 // Component
 import FlexBox from 'components/flex-box'
 
+// Constants
+import {border, fontSizes, neutrals} from 'constants/styles'
+
 const InputCounterSC = styled(FlexBox).attrs({
   alignItems: 'center',
   justifyContent: 'center',
@@ -10,10 +13,10 @@ const InputCounterSC = styled(FlexBox).attrs({
 })`
   flex: 0 0 auto;
   align-self: stretch;
-  background: #d4d4d4;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-  font-size: 12px;
+  background: ${neutrals.neutral30};
+  border-top-right-radius: ${border.radius};
+  border-bottom-right-radius: ${border.radius};
+  font-size: ${fontSizes.small};
 `
 
 export default InputCounterSC
