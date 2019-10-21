@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 // Component
 import TabButton from './tab-button'
 
-const sanitizeLabel = label => label.replace(/ /g, '-').toLowerCase()
+const normalizeLabel = label => label.replace(/ /g, '-').toLowerCase()
 
 class Tabs extends React.Component {
   constructor(props) {
@@ -20,6 +20,7 @@ class Tabs extends React.Component {
     const count = React.Children.count(this.props.children)
 
     // Right Arrow
+    // Cycle focus back to first tab if you've reached the end
     if (event.keyCode === 39) {
       this.setState(state => ({
         activeTab: state.activeTab + 1 === count ? 0 : state.activeTab + 1,
@@ -27,6 +28,7 @@ class Tabs extends React.Component {
     }
 
     // Left Arrow
+    // Cycle focus to last tab if you've reached the first tab
     if (event.keyCode === 37) {
       this.setState(state => ({
         activeTab: state.activeTab === 0 ? count - 1 : state.activeTab - 1,
@@ -43,10 +45,10 @@ class Tabs extends React.Component {
         <div role="tablist">
           {React.Children.map(children, (child, index) => (
             <TabButton
-              id={`${sanitizeLabel(child.props.label)}`}
+              id={`${normalizeLabel(child.props.label)}`}
               isActive={index === activeTab}
               label={child.props.label}
-              targetId={`${sanitizeLabel(child.props.label)}-tab`}
+              targetId={`${normalizeLabel(child.props.label)}-tab`}
               onClick={() => this.setState({activeTab: index})}
             />
           ))}
@@ -54,8 +56,8 @@ class Tabs extends React.Component {
         {React.Children.map(children, (child, index) =>
           React.cloneElement(child, {
             isActive: index === activeTab,
-            id: `${sanitizeLabel(child.props.label)}-tab`,
-            labelledBy: `${sanitizeLabel(child.props.label)}`,
+            id: `${normalizeLabel(child.props.label)}-tab`,
+            labelledBy: `${normalizeLabel(child.props.label)}`,
           })
         )}
       </div>
