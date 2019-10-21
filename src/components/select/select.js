@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 
 // Components
-import FlexBox from 'components/flex-box'
 import FlexItem from 'components/flex-item'
 import MaterialIcon from 'components/material-icon'
 
@@ -11,7 +10,7 @@ import SelectSC from './select-sc'
 import SelectFauxSC from './select-faux-sc'
 import SelectWrapperSC from './select-wrapper-sc'
 
-const Select = ({options, value, onChange, ...props}) => {
+const Select = ({placeholder, options, value, onChange, ...props}) => {
   const [selectedValue, setValue] = useState(value)
   const selectedOption =
     options.find(option => option.value === selectedValue) || {}
@@ -30,6 +29,11 @@ const Select = ({options, value, onChange, ...props}) => {
           onChange(event)
         }}
       >
+        {placeholder && (
+          <option value="" disabled>
+            {placeholder}
+          </option>
+        )}
         {options.map(option => (
           <option key={option.value} value={option.value}>
             {option.label}
@@ -37,7 +41,7 @@ const Select = ({options, value, onChange, ...props}) => {
         ))}
       </SelectSC>
       <SelectFauxSC>
-        <FlexItem>{selectedOption.label}</FlexItem>
+        <FlexItem>{selectedOption.label || placeholder}</FlexItem>
         <FlexItem flex="0 0 auto">
           <MaterialIcon charCode="e5c5" />
         </FlexItem>
@@ -53,6 +57,7 @@ Select.propTypes = {
 }
 
 Select.defaultProps = {
+  placeholder: 'Select an option',
   value: '',
   onChange: () => {},
 }

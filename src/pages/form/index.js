@@ -6,47 +6,116 @@ import Field from 'components/field'
 import FieldRow from 'components/field-row'
 import Modal from 'components/modal'
 import Input from 'components/input'
+import Select from 'components/select'
 import Spacing from 'components/spacing'
 
+// https://rangle.io/blog/simplifying-controlled-inputs-with-hooks/
+const useInput = initialValue => {
+  const [value, setValue] = useState(initialValue)
+
+  return {
+    value,
+    setValue,
+    reset: () => setValue(''),
+    bind: {
+      value,
+      onChange: event => {
+        setValue(event.target.value)
+      },
+    },
+  }
+}
+
 const Form = () => {
-  const [value, setValue] = useState('')
-  const [searchTerm, setSearchTerm] = useState('')
+  const [isOpen, toggleModal] = useState(false)
+  const {
+    value: firstName,
+    bind: bindFirstName,
+    reset: resetFirstName,
+  } = useInput('')
+  const {value: lastName, bind: bindLastName, reset: resetLastName} = useInput(
+    ''
+  )
+  const {value: address, bind: bindAddress, reset: resetAddress} = useInput('')
+  const {value: country, bind: bindCountry, reset: resetCountry} = useInput('')
 
   return (
     <React.Fragment>
       <form
         onSubmit={event => {
           event.preventDefault()
-          setSearchTerm(value)
-          setValue('')
+          toggleModal(true)
         }}
       >
         <FieldRow>
-          <Field label="Search" id="search">
-            <Input
-              id="search"
-              value={value}
-              maxLength={20}
-              placeholder="Search for something..."
-              onChange={event => setValue(event.target.value)}
-            />
-            {!!value.length && (
-              <Button onClick={() => setValue('')}>Clear input</Button>
-            )}
+          <Field label="First Name" id="firstName">
+            <Input id="firstName" maxLength={25} {...bindFirstName} />
+          </Field>
+          <Field label="Last Name" id="lastName">
+            <Input id="lastName" maxLength={25} {...bindLastName} />
           </Field>
         </FieldRow>
 
-        <Button disabled={!value.length} type="submit">
-          Submit
-        </Button>
+        <FieldRow>
+          <Field label="Address" id="address">
+            <Input
+              id="address"
+              placeholder="123 Fake Street"
+              {...bindAddress}
+            />
+          </Field>
+          <Field label="Country" id="country" flex="0 0 200px">
+            <Select
+              id="country"
+              options={[
+                {
+                  label: 'Canada',
+                  value: 'ca',
+                },
+                {
+                  label: 'United States',
+                  value: 'us',
+                },
+              ]}
+              {...bindCountry}
+            />
+          </Field>
+        </FieldRow>
+
+        <Spacing marginTop="lg">
+          <Button
+            disabled={
+              !address.length ||
+              !firstName.length ||
+              !lastName.length ||
+              !country.length
+            }
+            type="submit"
+          >
+            Submit
+          </Button>
+        </Spacing>
       </form>
 
       <Modal
-        title={`Searching for "${searchTerm}"`}
-        isOpen={!!searchTerm}
-        onDismiss={() => setSearchTerm('')}
+        title="Form submitted"
+        isOpen={isOpen}
+        onDismiss={() => {
+          toggleModal(false)
+          resetFirstName()
+          resetLastName()
+          resetAddress()
+          resetCountry()
+        }}
       >
-        <Spacing padding="lg">Loading...</Spacing>
+        <Spacing padding="lg">
+          <ul>
+            <li>First name: {firstName}</li>
+            <li>Last name: {lastName}</li>
+            <li>Address: {address}</li>
+            <li>Country: {country.toUpperCase()}</li>
+          </ul>
+        </Spacing>
       </Modal>
     </React.Fragment>
   )

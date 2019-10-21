@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import FlexBox from 'components/flex-box'
 
 // Constants
-import {border, layout, neutrals, spacing} from 'constants/styles'
+import {border, layout, neutrals} from 'constants/styles'
 
 const SelectFauxSC = styled(FlexBox).attrs({
   alignItems: 'center',
