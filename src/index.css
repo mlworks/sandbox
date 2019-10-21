@@ -26,6 +26,20 @@ h5 {
   text-transform: uppercase;
 }
 
+p {
+  margin: 0;
+}
+
+p + p {
+  margin-top: 16px;
+}
+
+hr {
+  margin: 24px 0;
+  border: 0;
+  border-top: 1px solid #d4d4d4;
+}
+
 .app-contents {
   max-width: 640px;
 }

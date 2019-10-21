@@ -4,11 +4,6 @@ import styled from 'styled-components'
 import {colors, spacing} from 'constants/styles'
 
 const BioSC = styled.div`
-  h2 {
-    font-family: 'Roboto', sans-serif;
-    text-transform: none;
-  }
-
   img {
     float: right;
     margin-bottom: ${spacing.md};

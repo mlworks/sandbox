@@ -43,6 +43,7 @@ const Form = () => {
   return (
     <React.Fragment>
       <Card>
+        <h2>Form Example</h2>
         <form
           onSubmit={event => {
             event.preventDefault()
@@ -62,7 +63,7 @@ const Form = () => {
             <Field label="Address" id="address">
               <Input
                 id="address"
-                placeholder="123 Fake Street"
+                placeholder="E.g. 123 Fake Street"
                 {...bindAddress}
               />
             </Field>

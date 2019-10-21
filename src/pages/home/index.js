@@ -3,6 +3,7 @@ import React from 'react'
 // Component
 import Card from 'components/card'
 import MaterialIcon from 'components/material-icon'
+import Spacing from 'components/spacing'
 
 // SC
 import BioSC from './bio-sc'
@@ -26,26 +27,28 @@ const Home = () => (
         ongoing basis.
       </p>
 
-      <a href="mailto:mlworks@gmail.com">
-        <MaterialIcon charCode="e0e1" /> mlworks@gmail.com
-      </a>
-      <br />
-      <a
-        href="https://www.linkedin.com/in/michael-lee-a1585a2a"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        <MaterialIcon charCode="e895" />{' '}
-        https://www.linkedin.com/in/michael-lee-a1585a2a
-      </a>
-      <br />
-      <a
-        href="https://github.com/mlworks/sandbox"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        <MaterialIcon charCode="e895" /> https://github.com/mlworks/sandbox
-      </a>
+      <Spacing marginTop="xlg">
+        <a href="mailto:mlworks@gmail.com">
+          <MaterialIcon charCode="e0e1" /> mlworks@gmail.com
+        </a>
+        <br />
+        <a
+          href="https://www.linkedin.com/in/michael-lee-a1585a2a"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <MaterialIcon charCode="e895" />{' '}
+          https://www.linkedin.com/in/michael-lee-a1585a2a
+        </a>
+        <br />
+        <a
+          href="https://github.com/mlworks/sandbox"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <MaterialIcon charCode="e895" /> https://github.com/mlworks/sandbox
+        </a>
+      </Spacing>
     </BioSC>
   </Card>
 )

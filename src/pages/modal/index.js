@@ -18,6 +18,17 @@ const ModalExample = () => {
   return (
     <React.Fragment>
       <Card>
+        <h2>Modal Example</h2>
+        <p>
+          Play around with the controls below to see how the modal animates.
+        </p>
+        <p>
+          Once modal is opened, try tabbing / shift+tabbing. Focus should be
+          trapped inside the modal until the modal is closed. If you press 'ESC'
+          key, it will dismiss the modal.
+        </p>
+      </Card>
+      <Card>
         <FieldRow>
           <Field id="coverage" label={`Modal Coverage: ${coverage}%`}>
             <Input
@@ -85,7 +96,7 @@ const ModalExample = () => {
             Duis cursus ipsum sed tempor lobortis.
           </p>
 
-          <FieldRow>
+          <FieldRow margin="lg 0">
             <Field id="firstName" label="First Name">
               <Input id="firstName" />
             </Field>
@@ -108,7 +119,7 @@ const ModalExample = () => {
             pulvinar dolor. Sed a efficitur lacus.
           </p>
 
-          <FieldRow>
+          <FieldRow margin="lg 0">
             <Field id="address" label="Address">
               <Input id="address" />
             </Field>
@@ -129,7 +140,9 @@ const ModalExample = () => {
             convallis.
           </p>
 
-          <Button onClick={() => toggleModal(false)}>close modal</Button>
+          <Spacing marginTop="lg">
+            <Button onClick={() => toggleModal(false)}>close modal</Button>
+          </Spacing>
         </Spacing>
       </Modal>
     </React.Fragment>
