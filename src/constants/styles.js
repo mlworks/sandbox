@@ -3,7 +3,7 @@ export const unit = 8
 export const layout = {
   subUnit: `${unit / 2}px`,
   tapSize: `${unit * 5}px`,
-  headerHeight: `${unit * 6}px`,
+  headerHeight: `${unit * 7}px`,
 }
 
 export const spacing = {
