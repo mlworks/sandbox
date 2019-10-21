@@ -7,6 +7,7 @@ import Home from 'pages/home'
 import ModalPage from 'pages/modal'
 
 // Components
+import Header from 'components/header'
 import Modal from 'components/modal'
 import Spacing from 'components/spacing'
 
@@ -16,9 +17,7 @@ const App = () => {
 
   return (
     <Router>
-      <button type="button" onClick={() => toggleModal(!isOpen)}>
-        Open Navigation
-      </button>
+      <Header openNavigation={() => toggleModal(!isOpen)} />
       <Modal
         coverage={40}
         effect="slide-left"

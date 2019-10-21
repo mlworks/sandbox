@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 
 // Components
 import Modal from 'components/modal'
+import Spacing from 'components/spacing'
 
 const ModalExample = () => {
   const [isOpen, toggleModal] = useState(false)
@@ -17,13 +18,15 @@ const ModalExample = () => {
         title="Modal example"
         onDismiss={() => toggleModal(false)}
       >
-        <div>content here</div>
-        <input type="text" />
-        <button type="button">go</button>
-        <a href="#">link</a>
-        <button type="button" onClick={() => toggleModal(false)}>
-          close modal
-        </button>
+        <Spacing padding="lg">
+          <div>content here</div>
+          <input type="text" />
+          <button type="button">go</button>
+          <a href="#">link</a>
+          <button type="button" onClick={() => toggleModal(false)}>
+            close modal
+          </button>
+        </Spacing>
       </Modal>
       <button type="button" onClick={() => toggleModal(true)}>
         open modal

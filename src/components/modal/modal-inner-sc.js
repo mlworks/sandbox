@@ -6,9 +6,9 @@ const ModalInnerSC = styled.article`
   flex: 1 1 auto;
   overflow: hidden;
 
-  background: white;
+  background: #ececec;
   border-radius: 4px;
-  box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.3);
 
   pointer-events: auto;
 `
