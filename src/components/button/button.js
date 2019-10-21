@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 // Constants
-import {border, layout, neutrals, spacing} from 'constants/styles'
+import {layout, neutrals, spacing} from 'constants/styles'
 
 const ButtonSC = styled.button.attrs(props => ({
   type: props.type || 'button',
