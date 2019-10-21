@@ -13,9 +13,15 @@ import ModalInnerSC from './modal-inner-sc'
 import ModalOverlaySC from './modal-overlay-sc'
 import ModalPaneSC from './modal-pane-sc'
 
+// HOC
+import withFocusTrap from './with-focus-trap'
+
 // Transitions
 import ModalPaneTransition from './modal-pane-transition'
 import ModalOverlayTransition from './modal-overlay-transition'
+
+// Enhance with focus trap
+const FocusTrap = withFocusTrap(ModalInnerSC)
 
 const Modal = ({children, coverage, effect, isOpen, title, onDismiss}) => (
   <Portal id="modal-root">
@@ -28,7 +34,7 @@ const Modal = ({children, coverage, effect, isOpen, title, onDismiss}) => (
       {isOpen && (
         <ModalPaneTransition effect={effect}>
           <ModalPaneSC effect={effect} coverage={coverage}>
-            <ModalInnerSC>
+            <FocusTrap>
               <ModalHeaderSC>
                 <FlexItem padding="lg">
                   <h2 id="modal-label">{title}</h2>
@@ -40,7 +46,7 @@ const Modal = ({children, coverage, effect, isOpen, title, onDismiss}) => (
                 </FlexItem>
               </ModalHeaderSC>
               <ModalContentSC id="modal-desc">{children}</ModalContentSC>
-            </ModalInnerSC>
+            </FocusTrap>
           </ModalPaneSC>
         </ModalPaneTransition>
       )}

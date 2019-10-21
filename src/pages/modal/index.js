@@ -10,6 +10,18 @@ const ModalExample = () => {
 
   return (
     <React.Fragment>
+      <Modal
+        coverage={coverage}
+        isOpen={isOpen}
+        effect={effect}
+        title="Modal example"
+        onDismiss={() => toggleModal(!isOpen)}
+      >
+        <div>content here</div>
+        <input type="text" />
+        <button type="button">go</button>
+        <a href="#">link</a>
+      </Modal>
       <button type="button" onClick={() => toggleModal(!isOpen)}>
         toggle modal
       </button>
@@ -35,15 +47,6 @@ const ModalExample = () => {
         <option value="slide-right">Slide From Right</option>
         <option value="slide-bottom">Slide From Bottom</option>
       </select>
-      <Modal
-        coverage={coverage}
-        isOpen={isOpen}
-        effect={effect}
-        title="Modal example"
-        onDismiss={() => toggleModal(!isOpen)}
-      >
-        <div>content here</div>
-      </Modal>
     </React.Fragment>
   )
 }
