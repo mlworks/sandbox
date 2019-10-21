@@ -34,6 +34,12 @@ const ModalExample = () => {
             </Field>
           </FieldRow>
 
+          <FieldRow>
+            <Field id="address" label="Address">
+              <Input id="address" />
+            </Field>
+          </FieldRow>
+
           <button type="button" onClick={() => toggleModal(false)}>
             close modal
           </button>
