@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 
 // Components
 import Button from 'components/button'
+import Card from 'components/card'
 import Field from 'components/field'
 import FieldRow from 'components/field-row'
 import Input from 'components/input'
@@ -16,51 +17,53 @@ const ModalExample = () => {
 
   return (
     <React.Fragment>
-      <FieldRow>
-        <Field id="coverage" label={`Modal Coverage: ${coverage}%`}>
-          <Input
-            id="coverage"
-            type="range"
-            min="50"
-            max="100"
-            step="5"
-            value={coverage}
-            onChange={event => setModalCoverage(event.target.valueAsNumber)}
-          />
-        </Field>
+      <Card>
+        <FieldRow>
+          <Field id="coverage" label={`Modal Coverage: ${coverage}%`}>
+            <Input
+              id="coverage"
+              type="range"
+              min="50"
+              max="100"
+              step="5"
+              value={coverage}
+              onChange={event => setModalCoverage(event.target.valueAsNumber)}
+            />
+          </Field>
 
-        <Field id="effect" label="Modal Animation Style">
-          <Select
-            id="effect"
-            options={[
-              {
-                value: 'dialog',
-                label: 'Dialog',
-              },
-              {
-                value: 'slide-top',
-                label: 'Slide From Top',
-              },
-              {
-                value: 'slide-left',
-                label: 'Slide From Left',
-              },
-              {
-                value: 'slide-right',
-                label: 'Slide From Right',
-              },
-              {
-                value: 'slide-bottom',
-                label: 'Slide From Bottom',
-              },
-            ]}
-            value={effect}
-            onChange={event => setModalEffect(event.target.value)}
-          />
-        </Field>
-      </FieldRow>
+          <Field id="effect" label="Modal Animation Style">
+            <Select
+              id="effect"
+              options={[
+                {
+                  value: 'dialog',
+                  label: 'Dialog',
+                },
+                {
+                  value: 'slide-top',
+                  label: 'Slide From Top',
+                },
+                {
+                  value: 'slide-left',
+                  label: 'Slide From Left',
+                },
+                {
+                  value: 'slide-right',
+                  label: 'Slide From Right',
+                },
+                {
+                  value: 'slide-bottom',
+                  label: 'Slide From Bottom',
+                },
+              ]}
+              value={effect}
+              onChange={event => setModalEffect(event.target.value)}
+            />
+          </Field>
+        </FieldRow>
+        <Button onClick={() => toggleModal(true)}>open modal</Button>
+      </Card>
 
-      <Button onClick={() => toggleModal(true)}>open modal</Button>
       <Modal
         coverage={coverage}
         isOpen={isOpen}
