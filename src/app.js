@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 // Pages
 import Form from 'pages/form'
@@ -10,7 +10,16 @@ import Tabs from 'pages/tabs'
 // Components
 import Header from 'components/header'
 import Modal from 'components/modal'
+import NavItem from 'components/nav-item'
 import Spacing from 'components/spacing'
+
+const isActive = (match, location) => {
+  if (!match) {
+    return false
+  }
+
+  return match.url === location.pathname
+}
 
 const App = () => {
   const [isOpen, toggleModal] = useState(false)
@@ -26,30 +35,20 @@ const App = () => {
         title="Navigation"
         onDismiss={dismissModal}
       >
-        <Spacing padding="lg">
-          <nav>
-            <Spacing marginBottom="lg">
-              <Link to="/" onClick={dismissModal}>
-                Home
-              </Link>
-            </Spacing>
-            <Spacing marginBottom="lg">
-              <Link to="/form" onClick={dismissModal}>
-                Form
-              </Link>
-            </Spacing>
-            <Spacing marginBottom="lg">
-              <Link to="/modal" onClick={dismissModal}>
-                Modal
-              </Link>
-            </Spacing>
-            <Spacing marginBottom="lg">
-              <Link to="/tabs" onClick={dismissModal}>
-                Tabs
-              </Link>
-            </Spacing>
-          </nav>
-        </Spacing>
+        <nav>
+          <NavItem to="/" onClick={dismissModal} isActive={isActive}>
+            Home
+          </NavItem>
+          <NavItem to="/form" onClick={dismissModal} isActive={isActive}>
+            Form
+          </NavItem>
+          <NavItem to="/modal" onClick={dismissModal} isActive={isActive}>
+            Modal
+          </NavItem>
+          <NavItem to="/tabs" onClick={dismissModal} isActive={isActive}>
+            Tabs
+          </NavItem>
+        </nav>
       </Modal>
 
       <Spacing className="app-contents" margin="0 auto" padding="xlg lg">
