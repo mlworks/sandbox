@@ -13,15 +13,18 @@ const ModalExample = () => {
       <button type="button" onClick={() => toggleModal(!isOpen)}>
         toggle modal
       </button>
-      <input
-        type="range"
-        name="coverage"
-        min="50"
-        max="100"
-        step="5"
-        value={coverage}
-        onChange={event => setModalCoverage(event.target.valueAsNumber)}
-      />
+      <div>
+        <input
+          type="range"
+          name="coverage"
+          min="50"
+          max="100"
+          step="5"
+          value={coverage}
+          onChange={event => setModalCoverage(event.target.valueAsNumber)}
+        />
+        Coverage: {coverage}%
+      </div>
       <select
         value={effect}
         onChange={event => setModalEffect(event.target.value)}
