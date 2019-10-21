@@ -3,11 +3,11 @@ import styled from 'styled-components'
 // Component
 import Spacing from 'components/spacing'
 
-const TabPaneSC = styled(Spacing).attrs(props => ({
+const TabPaneSC = styled(Spacing).attrs(({isActive, labelledBy}) => ({
   role: 'tabpanel',
   tabIndex: 0,
-  'aria-labelledby': props.labelledBy,
-  hidden: !props.isActive,
+  'aria-labelledby': labelledBy,
+  hidden: !isActive,
 }))``
 
 export default TabPaneSC

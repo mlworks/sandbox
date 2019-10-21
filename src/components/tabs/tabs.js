@@ -25,7 +25,7 @@ class Tabs extends React.Component {
   }
 
   handleKeyPress = event => {
-    // Right Arrow
+    // Right Arrow (Advancing forward)
     // Cycle focus back to first tab if you've reached the end
     if (event.keyCode === 39) {
       this.setState(state => ({
@@ -33,7 +33,7 @@ class Tabs extends React.Component {
       }))
     }
 
-    // Left Arrow
+    // Left Arrow (Moving backwards)
     // Cycle focus to last tab if you've reached the first tab
     if (event.keyCode === 37) {
       this.setState(state => ({
@@ -61,8 +61,8 @@ class Tabs extends React.Component {
         </TabListSC>
         {React.Children.map(children, (child, index) =>
           React.cloneElement(child, {
-            isActive: index === activeTab,
             id: `${normalizeLabel(child.props.label)}-tab`,
+            isActive: index === activeTab,
             labelledBy: `${normalizeLabel(child.props.label)}`,
           })
         )}
