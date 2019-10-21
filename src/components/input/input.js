@@ -11,6 +11,7 @@ import InputCounterSC from './input-counter-sc'
 
 const Input = ({maxLength, type, value, onChange, ...props}) => {
   const [count, setCount] = useState(maxLength - value.length)
+  const charCountLeft = maxLength - count
 
   useEffect(() => {
     setCount(value.length)
@@ -34,7 +35,8 @@ const Input = ({maxLength, type, value, onChange, ...props}) => {
       {maxLength && (
         <InputCounterSC
           id="char-limit"
-          aria-label={`${maxLength - count} characters remaining`}
+          aria-label={`${charCountLeft} characters remaining`}
+          title={`${charCountLeft} characters remaining`}
         >
           {count}/{maxLength}
         </InputCounterSC>
