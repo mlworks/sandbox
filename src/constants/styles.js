@@ -2,7 +2,7 @@ export const unit = 8
 
 export const layout = {
   subUnit: `${unit / 2}px`,
-  tapSize: `${unit * 5}px`,
+  tapSize: `${unit * 6}px`,
   headerHeight: `${unit * 8}px`,
 }
 

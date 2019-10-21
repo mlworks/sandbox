@@ -3,6 +3,7 @@ import {TransitionGroup} from 'react-transition-group'
 import PropTypes from 'prop-types'
 
 // Component
+import Button from 'components/button'
 import FlexItem from 'components/flex-item'
 import Portal from 'components/portal'
 
@@ -40,9 +41,7 @@ const Modal = ({children, coverage, effect, isOpen, title, onDismiss}) => (
                   <h2 id="modal-label">{title}</h2>
                 </FlexItem>
                 <FlexItem flex="0 0 auto">
-                  <button type="button" onClick={onDismiss}>
-                    Close
-                  </button>
+                  <Button onClick={onDismiss}>Close</Button>
                 </FlexItem>
               </ModalHeaderSC>
               <ModalContentSC id="modal-desc">{children}</ModalContentSC>

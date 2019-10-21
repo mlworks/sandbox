@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 
 // Components
+import Button from 'components/button'
 import Field from 'components/field'
 import FieldRow from 'components/field-row'
 import Modal from 'components/modal'
@@ -30,16 +31,14 @@ const Form = () => {
               onChange={setValue}
             />
             {!!value.length && (
-              <button onClick={() => setValue('')} type="button">
-                Clear input
-              </button>
+              <Button onClick={() => setValue('')}>Clear input</Button>
             )}
           </Field>
         </FieldRow>
 
-        <button disabled={!value.length} type="submit">
+        <Button disabled={!value.length} type="submit">
           Submit
-        </button>
+        </Button>
       </form>
 
       <Modal

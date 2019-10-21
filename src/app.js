@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
 import Form from 'pages/form'
 import Home from 'pages/home'
 import ModalPage from 'pages/modal'
+import Tabs from 'pages/tabs'
 
 // Components
 import Header from 'components/header'
@@ -42,6 +43,11 @@ const App = () => {
                 Modal
               </Link>
             </Spacing>
+            <Spacing marginBottom="lg">
+              <Link to="/tabs" onClick={dismissModal}>
+                Tabs
+              </Link>
+            </Spacing>
           </nav>
         </Spacing>
       </Modal>
@@ -56,6 +62,9 @@ const App = () => {
           </Route>
           <Route path="/modal">
             <ModalPage />
+          </Route>
+          <Route path="/tabs">
+            <Tabs />
           </Route>
         </Switch>
       </Spacing>
