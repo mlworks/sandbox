@@ -38,11 +38,24 @@ const withFocusTrap = Component => {
       }
     }
 
+    handleKeyPress = event => {
+      // ESC
+      if (event.keyCode === 27) {
+        this.props.onDismiss()
+      }
+    }
+
     render() {
+      const {onDismiss, ...restOfProps} = this.props
+
       return (
         <React.Fragment>
           <div tabIndex="0" ref={this.firstFocusNode} />
-          <Component ref={this.focusTrapContainer} {...this.props} />
+          <Component
+            ref={this.focusTrapContainer}
+            onKeyDown={this.handleKeyPress}
+            {...restOfProps}
+          />
           <div tabIndex="0" ref={this.lastFocusNode} />
         </React.Fragment>
       )

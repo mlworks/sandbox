@@ -15,15 +15,18 @@ const ModalExample = () => {
         isOpen={isOpen}
         effect={effect}
         title="Modal example"
-        onDismiss={() => toggleModal(!isOpen)}
+        onDismiss={() => toggleModal(false)}
       >
         <div>content here</div>
         <input type="text" />
         <button type="button">go</button>
         <a href="#">link</a>
+        <button type="button" onClick={() => toggleModal(false)}>
+          close modal
+        </button>
       </Modal>
-      <button type="button" onClick={() => toggleModal(!isOpen)}>
-        toggle modal
+      <button type="button" onClick={() => toggleModal(true)}>
+        open modal
       </button>
       <div>
         <input

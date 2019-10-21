@@ -34,7 +34,7 @@ const Modal = ({children, coverage, effect, isOpen, title, onDismiss}) => (
       {isOpen && (
         <ModalPaneTransition effect={effect}>
           <ModalPaneSC effect={effect} coverage={coverage}>
-            <FocusTrap>
+            <FocusTrap onDismiss={onDismiss}>
               <ModalHeaderSC>
                 <FlexItem padding="lg">
                   <h2 id="modal-label">{title}</h2>
