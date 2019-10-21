@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 
 // Components
+import Button from 'components/button'
 import Field from 'components/field'
 import FieldRow from 'components/field-row'
 import Input from 'components/input'
@@ -79,9 +80,7 @@ const ModalExample = () => {
             convallis.
           </p>
 
-          <button type="button" onClick={() => toggleModal(false)}>
-            close modal
-          </button>
+          <Button onClick={() => toggleModal(false)}>close modal</Button>
         </Spacing>
       </Modal>
 
@@ -117,9 +116,7 @@ const ModalExample = () => {
         </Field>
       </FieldRow>
 
-      <button type="button" onClick={() => toggleModal(true)}>
-        open modal
-      </button>
+      <Button onClick={() => toggleModal(true)}>open modal</Button>
     </React.Fragment>
   )
 }

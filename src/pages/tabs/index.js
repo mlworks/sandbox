@@ -2,11 +2,11 @@ import React from 'react'
 
 // Components
 import Tabs from 'components/tabs'
-import TabPane from 'components/tabs/tab-pane'
+import TabPaneSC from 'components/tabs/tab-pane-sc'
 
 const TabsPage = () => (
   <Tabs>
-    <TabPane label="Tab 1">
+    <TabPaneSC label="Tab 1">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce egestas
         condimentum aliquam. Donec nec libero magna. Nullam malesuada rhoncus
@@ -18,8 +18,8 @@ const TabsPage = () => (
         ullamcorper. Integer lacus risus, ullamcorper faucibus elementum et,
         accumsan eu turpis. Duis cursus ipsum sed tempor lobortis.
       </p>
-    </TabPane>
-    <TabPane label="Tab 2">
+    </TabPaneSC>
+    <TabPaneSC label="Tab 2">
       <p>
         Donec tristique nulla a sem condimentum, id tincidunt nulla egestas.
         Pellentesque habitant morbi tristique senectus et netus et malesuada
@@ -32,8 +32,8 @@ const TabsPage = () => (
         tristique ornare. Donec vitae vulputate orci, nec pulvinar dolor. Sed a
         efficitur lacus.
       </p>
-    </TabPane>
-    <TabPane label="Tab 3">
+    </TabPaneSC>
+    <TabPaneSC label="Tab 3">
       <p>
         Sed posuere laoreet sem, id ultrices urna dignissim ut. Sed sit amet
         convallis ligula. Pellentesque aliquet felis quam, vitae volutpat enim
@@ -47,7 +47,7 @@ const TabsPage = () => (
         feugiat sollicitudin, leo est tincidunt massa, quis vehicula massa elit
         vel libero. Ut efficitur augue vel orci molestie convallis.
       </p>
-    </TabPane>
+    </TabPaneSC>
   </Tabs>
 )
 

@@ -4,6 +4,9 @@ import PropTypes from 'prop-types'
 // Component
 import TabButton from './tab-button'
 
+// SC
+import TabListSC from './tab-list-sc'
+
 const normalizeLabel = label => label.replace(/ /g, '-').toLowerCase()
 
 class Tabs extends React.Component {
@@ -45,7 +48,7 @@ class Tabs extends React.Component {
 
     return (
       <div onKeyDown={this.handleKeyPress}>
-        <div role="tablist">
+        <TabListSC>
           {React.Children.map(children, (child, index) => (
             <TabButton
               id={`${normalizeLabel(child.props.label)}`}
@@ -55,7 +58,7 @@ class Tabs extends React.Component {
               onClick={() => this.setState({activeTab: index})}
             />
           ))}
-        </div>
+        </TabListSC>
         {React.Children.map(children, (child, index) =>
           React.cloneElement(child, {
             isActive: index === activeTab,

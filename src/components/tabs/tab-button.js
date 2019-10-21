@@ -1,6 +1,9 @@
 import React, {useEffect, useRef} from 'react'
 import PropTypes from 'prop-types'
 
+// SC
+import TabButtonSC from './tab-button-sc'
+
 const TabButton = ({id, isActive, label, targetId, onClick}) => {
   const tabButtonEl = useRef(null)
 
@@ -11,7 +14,7 @@ const TabButton = ({id, isActive, label, targetId, onClick}) => {
   }, [isActive])
 
   return (
-    <button
+    <TabButtonSC
       aria-selected={isActive}
       aria-controls={targetId}
       id={id}
@@ -22,7 +25,7 @@ const TabButton = ({id, isActive, label, targetId, onClick}) => {
       onClick={onClick}
     >
       {label}
-    </button>
+    </TabButtonSC>
   )
 }
 
