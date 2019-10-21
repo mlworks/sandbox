@@ -1,37 +1,66 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
 
 // Pages
 import Form from 'pages/form'
 import Home from 'pages/home'
+import ModalPage from 'pages/modal'
 
 // Components
-import FlexBox from 'components/flex-box'
-import FlexItem from 'components/flex-item'
+import Modal from 'components/modal'
 import Spacing from 'components/spacing'
 
-const App = () => (
-  <Router>
-    <FlexBox justifyContent="space-around">
-      <FlexItem flex="0 0 auto" padding="lg">
-        <Link to="/">Home</Link>
-      </FlexItem>
-      <FlexItem flex="0 0 auto" padding="lg">
-        <Link to="/form">Form</Link>
-      </FlexItem>
-    </FlexBox>
+const App = () => {
+  const [isOpen, toggleModal] = useState(false)
+  const dismissModal = () => toggleModal(false)
 
-    <Spacing padding="lg">
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/form">
-          <Form />
-        </Route>
-      </Switch>
-    </Spacing>
-  </Router>
-)
+  return (
+    <Router>
+      <button type="button" onClick={() => toggleModal(!isOpen)}>
+        Open Navigation
+      </button>
+      <Modal
+        coverage={40}
+        effect="slide-left"
+        isOpen={isOpen}
+        title="Navigation"
+        onDismiss={dismissModal}
+      >
+        <Spacing padding="lg">
+          <nav>
+            <Spacing marginBottom="lg">
+              <Link to="/" onClick={dismissModal}>
+                Home
+              </Link>
+            </Spacing>
+            <Spacing marginBottom="lg">
+              <Link to="/form" onClick={dismissModal}>
+                Form
+              </Link>
+            </Spacing>
+            <Spacing marginBottom="lg">
+              <Link to="/modal" onClick={dismissModal}>
+                Modal
+              </Link>
+            </Spacing>
+          </nav>
+        </Spacing>
+      </Modal>
 
+      <Spacing padding="lg">
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/form">
+            <Form />
+          </Route>
+          <Route path="/modal">
+            <ModalPage />
+          </Route>
+        </Switch>
+      </Spacing>
+    </Router>
+  )
+}
 export default App
