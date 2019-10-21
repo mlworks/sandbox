@@ -29,7 +29,12 @@ const Modal = ({children, coverage, effect, isOpen, title, onDismiss}) => (
     <TransitionGroup component={null}>
       {isOpen && (
         <ModalOverlayTransition>
-          <ModalOverlaySC aria-hidden role="presentation" onClick={onDismiss} />
+          <ModalOverlaySC
+            aria-hidden
+            role="presentation"
+            title="Dismiss Modal"
+            onClick={onDismiss}
+          />
         </ModalOverlayTransition>
       )}
       {isOpen && (
@@ -41,7 +46,13 @@ const Modal = ({children, coverage, effect, isOpen, title, onDismiss}) => (
                   <h2 id="modal-label">{title}</h2>
                 </FlexItem>
                 <FlexItem flex="0 0 auto">
-                  <Button onClick={onDismiss}>Close</Button>
+                  <Button
+                    onClick={onDismiss}
+                    title="Dismiss Modal"
+                    aria-label="Dismiss Modal"
+                  >
+                    <i className="material-icons">&#xE5CD;</i>
+                  </Button>
                 </FlexItem>
               </ModalHeaderSC>
               <ModalContentSC id="modal-desc">{children}</ModalContentSC>

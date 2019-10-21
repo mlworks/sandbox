@@ -24,8 +24,14 @@ const AppHeader = () => {
   return (
     <React.Fragment>
       <AppHeaderSC>
-        <FlexItem flex="0 0 auto" marginRight="lg">
-          <Button onClick={() => toggleModal(true)}>Open Navigation</Button>
+        <FlexItem flex="0 0 auto" marginRight="md">
+          <Button
+            onClick={() => toggleModal(true)}
+            title="Open Navigation"
+            aria-label="Open Navigation"
+          >
+            <i className="material-icons">&#xE5D2;</i>
+          </Button>
         </FlexItem>
         <FlexItem>
           <h1>Component Demos</h1>

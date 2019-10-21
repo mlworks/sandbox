@@ -10,7 +10,6 @@ const ButtonSC = styled.button.attrs(props => ({
   padding: ${spacing.md} ${spacing.lg};
   min-height: ${layout.tapSize};
   border: 0;
-  border-radius: ${border.radius};
 
   background: none;
 
