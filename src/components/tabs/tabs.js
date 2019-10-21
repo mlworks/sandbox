@@ -13,17 +13,20 @@ class Tabs extends React.Component {
     this.state = {
       activeTab: 0,
     }
+
+    this.count = 0
+  }
+
+  componentDidMount() {
+    this.count = React.Children.count(this.props.children)
   }
 
   handleKeyPress = event => {
-    const {activeTab} = this.state
-    const count = React.Children.count(this.props.children)
-
     // Right Arrow
     // Cycle focus back to first tab if you've reached the end
     if (event.keyCode === 39) {
       this.setState(state => ({
-        activeTab: state.activeTab + 1 === count ? 0 : state.activeTab + 1,
+        activeTab: state.activeTab + 1 === this.count ? 0 : state.activeTab + 1,
       }))
     }
 
@@ -31,7 +34,7 @@ class Tabs extends React.Component {
     // Cycle focus to last tab if you've reached the first tab
     if (event.keyCode === 37) {
       this.setState(state => ({
-        activeTab: state.activeTab === 0 ? count - 1 : state.activeTab - 1,
+        activeTab: state.activeTab === 0 ? this.count - 1 : state.activeTab - 1,
       }))
     }
   }
