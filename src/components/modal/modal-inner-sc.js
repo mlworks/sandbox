@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 // Constants
-import {border, colors, neutrals} from 'constants/styles'
+import {border, colors} from 'constants/styles'
 
 const ModalInnerSC = styled.article`
   display: flex;
