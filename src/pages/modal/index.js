@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 // Components
-import Button from 'components/button'
+import ButtonPrimary from 'components/button-primary'
 import Card from 'components/card'
 import Field from 'components/field'
 import FieldRow from 'components/field-row'
@@ -72,7 +72,11 @@ const ModalExample = () => {
             />
           </Field>
         </FieldRow>
-        <Button onClick={() => toggleModal(true)}>open modal</Button>
+        <Spacing marginTop="xlg">
+          <ButtonPrimary onClick={() => toggleModal(true)}>
+            Open Modal
+          </ButtonPrimary>
+        </Spacing>
       </Card>
 
       <Modal
@@ -141,7 +145,9 @@ const ModalExample = () => {
           </p>
 
           <Spacing marginTop="lg">
-            <Button onClick={() => toggleModal(false)}>close modal</Button>
+            <ButtonPrimary onClick={() => toggleModal(false)}>
+              Close Modal
+            </ButtonPrimary>
           </Spacing>
         </Spacing>
       </Modal>

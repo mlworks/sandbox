@@ -14,6 +14,7 @@ const ButtonSC = styled.button.attrs(props => ({
   background: none;
 
   color: inherit;
+  font-weight: 500;
   cursor: pointer;
 
   transition: 0.2s ease-out background;

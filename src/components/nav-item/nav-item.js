@@ -8,7 +8,7 @@ const NavItem = styled(NavLink)`
   display: flex;
   align-items: center;
   padding: ${spacing.md} ${spacing.lg};
-  min-height: ${layout.tapSize};
+  min-height: ${layout.headerHeight};
   text-decoration: none;
 
   &.active {

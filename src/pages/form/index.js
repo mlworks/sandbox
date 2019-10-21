@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 // Components
-import Button from 'components/button'
+import ButtonPrimary from 'components/button-primary'
 import Card from 'components/card'
 import Field from 'components/field'
 import FieldRow from 'components/field-row'
@@ -86,7 +86,7 @@ const Form = () => {
           </FieldRow>
 
           <Spacing marginTop="lg">
-            <Button
+            <ButtonPrimary
               disabled={
                 !address.length ||
                 !firstName.length ||
@@ -96,7 +96,7 @@ const Form = () => {
               type="submit"
             >
               Submit
-            </Button>
+            </ButtonPrimary>
           </Spacing>
         </form>
       </Card>
