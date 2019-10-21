@@ -6,7 +6,7 @@ import FlexBox from 'components/flex-box'
 // Constants
 import {border, colors, fontSizes, layout, neutrals} from 'constants/styles'
 
-const HeaderSC = styled(FlexBox).attrs({
+const AppHeaderSC = styled(FlexBox).attrs({
   alignItems: 'center',
 })`
   min-height: ${layout.headerHeight};
@@ -19,4 +19,4 @@ const HeaderSC = styled(FlexBox).attrs({
   }
 `
 
-export default HeaderSC
+export default AppHeaderSC
