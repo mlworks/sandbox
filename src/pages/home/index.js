@@ -2,6 +2,7 @@ import React from 'react'
 
 // Component
 import Card from 'components/card'
+import MaterialIcon from 'components/material-icon'
 
 // SC
 import BioSC from './bio-sc'
@@ -18,17 +19,23 @@ const Home = () => (
         for market researchers to construct and deploy their surveys.
       </p>
       <p>
-        I’m passionate about the latest front-end tech and tools, writing clean
-        CSS and making sure the components meet the a11y (web accessible)
-        standard. Here you'll find a collection of components that I've been
-        creating and experimenting.
+        I’m passionate about the latest front-end tech and tools, writing
+        semantically correct HTML, clean CSS as well as making sure the
+        components meet the a11y (web accessible) standard. Here you'll find a
+        collection of components that I've been creating and experimenting on an
+        ongoing basis.
       </p>
 
+      <a href="mailto:mlworks@gmail.com">
+        <MaterialIcon charCode="e0e1" /> mlworks@gmail.com
+      </a>
+      <br />
       <a
         href="https://www.linkedin.com/in/michael-lee-a1585a2a"
         rel="noopener noreferrer"
         target="_blank"
       >
+        <MaterialIcon charCode="e895" />{' '}
         https://www.linkedin.com/in/michael-lee-a1585a2a
       </a>
       <br />
@@ -37,7 +44,7 @@ const Home = () => (
         rel="noopener noreferrer"
         target="_blank"
       >
-        https://github.com/mlworks/sandbox
+        <MaterialIcon charCode="e895" /> https://github.com/mlworks/sandbox
       </a>
     </BioSC>
   </Card>

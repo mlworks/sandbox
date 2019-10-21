@@ -21,6 +21,11 @@ const BioSC = styled.div`
     color: ${colors.accentRed};
     text-decoration: none;
   }
+
+  i {
+    margin-right: ${spacing.sm};
+    vertical-align: middle;
+  }
 `
 
 export default BioSC
