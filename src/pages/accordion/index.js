@@ -12,6 +12,15 @@ const AccordionPage = () => (
   <React.Fragment>
     <Card>
       <h2>Accordion Example</h2>
+      <p>
+        Tab to an accordion header and try up/down arrow keys. You will cycle
+        through the headers.
+      </p>
+      <p>
+        Tapping on space/enter key while focused on the header will open up the
+        accordion item. You can then tab to focus elements in the content if
+        there are focusable element(s).
+      </p>
     </Card>
     <Card>
       <Accordion>
