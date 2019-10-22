@@ -13,7 +13,7 @@ import AppHeader from 'components/app-header'
 import Spacing from 'components/spacing'
 
 const App = () => (
-  <Router>
+  <Router basename={process.env.PUBLIC_URL}>
     <AppHeader />
 
     <Spacing className="app-contents" margin="0 auto" padding="xlg lg">
