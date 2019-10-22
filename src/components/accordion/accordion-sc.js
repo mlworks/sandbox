@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 // Constants
-import {border, colors, layout, neutrals, spacing} from 'constants/styles'
+import {border, neutrals} from 'constants/styles'
 
 const AccordionSC = styled.div`
   border-radius: ${border.radius};
