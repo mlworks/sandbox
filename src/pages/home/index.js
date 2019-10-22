@@ -1,6 +1,7 @@
 import React from 'react'
 
 // Component
+import Accordion from 'components/accordion'
 import Card from 'components/card'
 import MaterialIcon from 'components/material-icon'
 import Spacing from 'components/spacing'
@@ -10,6 +11,10 @@ import BioSC from './bio-sc'
 
 const Home = () => (
   <Card>
+    <Accordion>
+      <div label="item 1">content</div>
+      <div label="item 2">content</div>
+    </Accordion>
     <BioSC>
       <img src="/profile.jpg" alt="Michael Lee" />
       <h2>Hi there, my name is Michael Lee.</h2>

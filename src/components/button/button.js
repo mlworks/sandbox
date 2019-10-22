@@ -7,6 +7,7 @@ const ButtonSC = styled.button.attrs(props => ({
   type: props.type || 'button',
 }))`
   display: ${({fullWidth}) => (fullWidth ? 'flex' : 'inline-flex')};
+  width: ${({fullWidth}) => (fullWidth ? '100%' : 'auto')};
   padding: ${spacing.md} ${spacing.lg};
   min-height: ${layout.tapSize};
   border: 0;

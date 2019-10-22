@@ -9,6 +9,7 @@ const NavItem = styled(NavLink)`
   align-items: center;
   padding: ${spacing.md} ${spacing.lg};
   min-height: ${layout.headerHeight};
+  color: inherit;
   text-decoration: none;
 
   &.active {

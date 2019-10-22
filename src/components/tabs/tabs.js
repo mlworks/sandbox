@@ -7,7 +7,8 @@ import TabButton from './tab-button'
 // SC
 import TabListSC from './tab-list-sc'
 
-const normalizeLabel = label => label.replace(/ /g, '-').toLowerCase()
+// Utils
+import {normalizeLabel} from 'utils/misc'
 
 class Tabs extends React.Component {
   constructor(props) {
