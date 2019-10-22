@@ -1,21 +1,11 @@
 import React from 'react'
 
 // Components
-import Button from 'components/button'
-import FlexBox from 'components/flex-box'
-import FlexItem from 'components/flex-item'
-import MaterialIcon from 'components/material-icon'
-
-// Utils
-import {normalizeLabel} from 'utils/misc'
+import AccordionItem from 'components/accordion/accordion-item'
 
 class Accordion extends React.Component {
   constructor(props) {
     super(props)
-
-    this.state = {
-      activeItem: null,
-    }
 
     this.itemRef = []
     this.count = 0
@@ -43,48 +33,20 @@ class Accordion extends React.Component {
 
   render() {
     const {children} = this.props
-    const {activeItem} = this.state
 
     return (
       <div>
         {React.Children.map(children, (child, index) => {
           this.itemRef[index] = React.createRef()
           return (
-            <div key={child.props.label}>
-              <h3>
-                <Button
-                  aria-expanded="true"
-                  aria-controls={`${normalizeLabel(child.props.label)}-content`}
-                  id={`${normalizeLabel(child.props.label)}`}
-                  ref={this.itemRef[index]}
-                  onClick={() =>
-                    this.setState(state => ({
-                      activeItem: state.activeItem === index ? null : index,
-                    }))
-                  }
-                  onKeyDown={event => this.handleKeyPress(event, index)}
-                >
-                  <FlexBox alignItems="center">
-                    <FlexItem>{child.props.label}</FlexItem>
-
-                    <FlexItem marginLeft="md" flex="0 0 auto">
-                      <MaterialIcon
-                        charCode={index === activeItem ? 'e5c7' : 'e5c5'}
-                      />
-                    </FlexItem>
-                  </FlexBox>
-                </Button>
-              </h3>
-
-              <div
-                id={`${normalizeLabel(child.props.label)}-content`}
-                role="region"
-                aria-labelledby={`${normalizeLabel(child.props.label)}`}
-                hidden={index !== activeItem}
-              >
-                {child.props.children}
-              </div>
-            </div>
+            <AccordionItem
+              key={child.props.label}
+              label={child.props.label}
+              ref={this.itemRef[index]}
+              onKeyDown={event => this.handleKeyPress(event, index)}
+            >
+              {child.props.children}
+            </AccordionItem>
           )
         })}
       </div>
