@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
+import AnimateHeight from 'react-animate-height'
 
 // Components
 import Button from 'components/button'
@@ -40,14 +41,19 @@ const AccordionItem = React.forwardRef(({children, label, onKeyDown}, ref) => {
         </Button>
       </AccordionHeaderSC>
 
-      <AccordionPanelSC
-        id={`${normalizeLabel(label)}-content`}
-        role="region"
-        aria-labelledby={`${normalizeLabel(label)}`}
-        hidden={!isOpen}
+      <AnimateHeight
+        duration={250}
+        easing="ease-out"
+        height={isOpen ? 'auto' : 0}
       >
-        {children}
-      </AccordionPanelSC>
+        <AccordionPanelSC
+          id={`${normalizeLabel(label)}-content`}
+          role="region"
+          aria-labelledby={`${normalizeLabel(label)}`}
+        >
+          {children}
+        </AccordionPanelSC>
+      </AnimateHeight>
     </AccordionItemSC>
   )
 })
