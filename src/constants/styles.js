@@ -45,6 +45,7 @@ export const neutrals = {
 
 export const border = {
   color: neutrals.neutral30,
+  focusColor: '#3c3c3c',
   radius: layout.subUnit,
   shorthand: `1px solid ${neutrals.neutral30}`,
 }

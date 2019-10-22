@@ -2,12 +2,12 @@ import React, {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 
 // Components
-import FlexBox from 'components/flex-box'
 import FlexItem from 'components/flex-item'
 
 // SC
 import InputSC from './input-sc'
 import InputCounterSC from './input-counter-sc'
+import InputWrapperSC from './input-wrapper-sc'
 
 const Input = ({maxLength, type, value, onChange, ...props}) => {
   const [count, setCount] = useState(maxLength - value.length)
@@ -18,7 +18,7 @@ const Input = ({maxLength, type, value, onChange, ...props}) => {
   }, [maxLength, value])
 
   return (
-    <FlexBox>
+    <InputWrapperSC>
       <FlexItem>
         <InputSC
           {...props}
@@ -41,7 +41,7 @@ const Input = ({maxLength, type, value, onChange, ...props}) => {
           {count}/{maxLength}
         </InputCounterSC>
       )}
-    </FlexBox>
+    </InputWrapperSC>
   )
 }
 

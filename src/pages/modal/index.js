@@ -5,6 +5,7 @@ import ButtonPrimary from 'components/button-primary'
 import Card from 'components/card'
 import Field from 'components/field'
 import FieldRow from 'components/field-row'
+import FormExample from 'components/form-example'
 import Input from 'components/input'
 import Modal from 'components/modal'
 import Select from 'components/select'
@@ -100,15 +101,9 @@ const ModalExample = () => {
             Duis cursus ipsum sed tempor lobortis.
           </p>
 
-          <FieldRow margin="lg 0">
-            <Field id="firstName" label="First Name">
-              <Input id="firstName" />
-            </Field>
-
-            <Field id="lastName" label="Last Name">
-              <Input id="lastName" />
-            </Field>
-          </FieldRow>
+          <Spacing margin="lg 0">
+            <FormExample />
+          </Spacing>
 
           <p>
             Donec tristique nulla a sem condimentum, id tincidunt nulla egestas.
@@ -122,12 +117,6 @@ const ModalExample = () => {
             ornare erat eu tristique ornare. Donec vitae vulputate orci, nec
             pulvinar dolor. Sed a efficitur lacus.
           </p>
-
-          <FieldRow margin="lg 0">
-            <Field id="address" label="Address">
-              <Input id="address" />
-            </Field>
-          </FieldRow>
 
           <p>
             Sed posuere laoreet sem, id ultrices urna dignissim ut. Sed sit amet

@@ -12,7 +12,7 @@ const SelectFauxSC = styled(FlexBox).attrs({
 })`
   min-height: ${layout.tapSize};
   border-radius: ${border.radius};
-  border-bottom: 2px solid ${border.color};
+  border: 1px solid ${border.color};
   background: ${neutrals.neutral10};
 
   > div:first-child {

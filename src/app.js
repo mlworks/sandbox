@@ -2,6 +2,7 @@ import React from 'react'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 // Pages
+import Accordion from 'pages/accordion'
 import Form from 'pages/form'
 import Home from 'pages/home'
 import ModalPage from 'pages/modal'
@@ -19,6 +20,9 @@ const App = () => (
       <Switch>
         <Route exact path="/">
           <Home />
+        </Route>
+        <Route path="/accordion">
+          <Accordion />
         </Route>
         <Route path="/form">
           <Form />
