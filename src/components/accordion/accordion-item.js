@@ -7,6 +7,11 @@ import FlexBox from 'components/flex-box'
 import FlexItem from 'components/flex-item'
 import MaterialIcon from 'components/material-icon'
 
+// SC
+import AccordionHeaderSC from './accordion-header-sc'
+import AccordionItemSC from './accordion-item-sc'
+import AccordionPanelSC from './accordion-panel-sc'
+
 // Utils
 import {normalizeLabel} from 'utils/misc'
 
@@ -14,11 +19,12 @@ const AccordionItem = React.forwardRef(({children, label, onKeyDown}, ref) => {
   const [isOpen, toggleItem] = useState(false)
 
   return (
-    <div>
-      <h3>
+    <AccordionItemSC>
+      <AccordionHeaderSC>
         <Button
           aria-expanded={isOpen}
           aria-controls={`${normalizeLabel(label)}-content`}
+          fullWidth
           id={`${normalizeLabel(label)}`}
           ref={ref}
           onClick={() => toggleItem(!isOpen)}
@@ -28,21 +34,21 @@ const AccordionItem = React.forwardRef(({children, label, onKeyDown}, ref) => {
             <FlexItem>{label}</FlexItem>
 
             <FlexItem marginLeft="md" flex="0 0 auto">
-              <MaterialIcon charCode={isOpen ? 'e5c7' : 'e5c5'} />
+              <MaterialIcon charCode={isOpen ? 'e15b' : 'e145'} />
             </FlexItem>
           </FlexBox>
         </Button>
-      </h3>
+      </AccordionHeaderSC>
 
-      <div
+      <AccordionPanelSC
         id={`${normalizeLabel(label)}-content`}
         role="region"
         aria-labelledby={`${normalizeLabel(label)}`}
         hidden={!isOpen}
       >
         {children}
-      </div>
-    </div>
+      </AccordionPanelSC>
+    </AccordionItemSC>
   )
 })
 

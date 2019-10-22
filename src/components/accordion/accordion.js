@@ -1,7 +1,10 @@
 import React from 'react'
 
 // Components
-import AccordionItem from 'components/accordion/accordion-item'
+import AccordionItem from './accordion-item'
+
+// SC
+import AccordionSC from './accordion-sc'
 
 class Accordion extends React.Component {
   constructor(props) {
@@ -35,7 +38,7 @@ class Accordion extends React.Component {
     const {children} = this.props
 
     return (
-      <div>
+      <AccordionSC>
         {React.Children.map(children, (child, index) => {
           this.itemRef[index] = React.createRef()
           return (
@@ -49,7 +52,7 @@ class Accordion extends React.Component {
             </AccordionItem>
           )
         })}
-      </div>
+      </AccordionSC>
     )
   }
 }

@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+// SC
+import MaterialIconSC from './material-icon-sc'
+
 const MaterialIcon = ({charCode}) => (
-  <i
-    className="material-icons"
-    dangerouslySetInnerHTML={{__html: `&#x${charCode};`}}
-  />
+  <MaterialIconSC dangerouslySetInnerHTML={{__html: `&#x${charCode};`}} />
 )
 
 MaterialIcon.propTypes = {
