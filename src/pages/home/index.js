@@ -12,8 +12,15 @@ import BioSC from './bio-sc'
 const Home = () => (
   <Card>
     <Accordion>
-      <div label="item 1">content</div>
-      <div label="item 2">content</div>
+      <div label="item 1">content 1</div>
+      <div label="item 2">
+        <input />
+        content 2
+      </div>
+      <div label="item 3">
+        <input />
+        content 2
+      </div>
     </Accordion>
     <BioSC>
       <img src="/profile.jpg" alt="Michael Lee" />
