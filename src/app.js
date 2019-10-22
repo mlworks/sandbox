@@ -15,26 +15,27 @@ import Spacing from 'components/spacing'
 const App = () => (
   <Router>
     <AppHeader />
-
-    <Spacing className="app-contents" margin="0 auto" padding="xlg lg">
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/accordion">
-          <Accordion />
-        </Route>
-        <Route path="/form">
-          <Form />
-        </Route>
-        <Route path="/modal">
-          <ModalPage />
-        </Route>
-        <Route path="/tabs">
-          <Tabs />
-        </Route>
-      </Switch>
-    </Spacing>
+    <main>
+      <Spacing className="app-contents" margin="0 auto" padding="xlg lg">
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/accordion">
+            <Accordion />
+          </Route>
+          <Route path="/form">
+            <Form />
+          </Route>
+          <Route path="/modal">
+            <ModalPage />
+          </Route>
+          <Route path="/tabs">
+            <Tabs />
+          </Route>
+        </Switch>
+      </Spacing>
+    </main>
   </Router>
 )
 

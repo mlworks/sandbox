@@ -52,7 +52,7 @@ const Modal = ({children, coverage, effect, isOpen, title, onDismiss}) => (
                     title="Dismiss Modal"
                     aria-label="Dismiss Modal"
                   >
-                    <MaterialIcon charCode="e5cd" />
+                    <MaterialIcon icon="close" />
                   </Button>
                 </FlexItem>
               </ModalHeaderSC>

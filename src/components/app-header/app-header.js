@@ -31,7 +31,7 @@ const AppHeader = () => {
             title="Open Navigation"
             aria-label="Open Navigation"
           >
-            <MaterialIcon charCode="e5d2" />
+            <MaterialIcon icon="menu" />
           </Button>
         </FlexItem>
         <FlexItem>

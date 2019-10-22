@@ -8,9 +8,9 @@ import FlexItem from 'components/flex-item'
 // Constants
 import {border, colors, fontSizes, layout, neutrals} from 'constants/styles'
 
-const AppHeaderSC = styled(FlexBox).attrs({
-  alignItems: 'center',
-})`
+const AppHeaderSC = styled.header`
+  display: flex;
+  align-items: center;
   min-height: ${layout.headerHeight};
   border-top: ${layout.subUnit} solid ${colors.accentRed};
   border-bottom: ${border.shorthand};

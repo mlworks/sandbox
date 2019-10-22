@@ -1,9 +1,12 @@
 import styled from 'styled-components'
 
+// Component
+import Card from 'components/card'
+
 // Constants
 import {colors, spacing} from 'constants/styles'
 
-const BioSC = styled.div`
+const BioSC = styled(Card)`
   img {
     float: right;
     margin-bottom: ${spacing.md};

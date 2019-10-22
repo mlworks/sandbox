@@ -35,7 +35,7 @@ const AccordionItem = React.forwardRef(({children, label, onKeyDown}, ref) => {
             <FlexItem>{label}</FlexItem>
 
             <FlexItem marginLeft="md" flex="0 0 auto">
-              <MaterialIcon charCode={isOpen ? 'e15b' : 'e145'} />
+              <MaterialIcon icon={isOpen ? 'minus' : 'add'} />
             </FlexItem>
           </FlexBox>
         </Button>
