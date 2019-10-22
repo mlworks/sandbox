@@ -35,7 +35,7 @@ const AppHeader = () => {
           </Button>
         </FlexItem>
         <FlexItem>
-          <h1>Component Demos.</h1>
+          <h1>Component Demos</h1>
         </FlexItem>
       </AppHeaderSC>
 
