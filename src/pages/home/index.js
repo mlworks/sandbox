@@ -11,7 +11,7 @@ import BioSC from './bio-sc'
 const Home = () => (
   <Card>
     <BioSC>
-      <img src="/profile.jpg" alt="Michael Lee" />
+      <img src={`${process.env.PUBLIC_URL}/profile.jpg`} alt="Michael Lee" />
       <h2>Hi there, my name is Michael Lee.</h2>
       <p>
         I’m a front-end developer with over 5 years professional experience
