@@ -47,19 +47,39 @@ const AppHeader = () => {
         onDismiss={dismissModal}
       >
         <nav>
-          <NavItem to="/" onClick={dismissModal} isActive={isActive}>
+          <NavItem
+            to={`${process.env.PUBLIC_URL}/`}
+            onClick={dismissModal}
+            isActive={isActive}
+          >
             Home
           </NavItem>
-          <NavItem to="/accordion" onClick={dismissModal} isActive={isActive}>
+          <NavItem
+            to={`${process.env.PUBLIC_URL}/accordion`}
+            onClick={dismissModal}
+            isActive={isActive}
+          >
             Accordion
           </NavItem>
-          <NavItem to="/form" onClick={dismissModal} isActive={isActive}>
+          <NavItem
+            to={`${process.env.PUBLIC_URL}/form`}
+            onClick={dismissModal}
+            isActive={isActive}
+          >
             Form
           </NavItem>
-          <NavItem to="/modal" onClick={dismissModal} isActive={isActive}>
+          <NavItem
+            to={`${process.env.PUBLIC_URL}/modal`}
+            onClick={dismissModal}
+            isActive={isActive}
+          >
             Modal
           </NavItem>
-          <NavItem to="/tabs" onClick={dismissModal} isActive={isActive}>
+          <NavItem
+            to={`${process.env.PUBLIC_URL}/tabs`}
+            onClick={dismissModal}
+            isActive={isActive}
+          >
             Tabs
           </NavItem>
         </nav>

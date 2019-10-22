@@ -1,8 +1,10 @@
 {
   "name": "sandbox",
+  "homepage": "http://mlworks.github.io/sandbox",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "gh-pages": "^2.1.1",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
@@ -17,7 +19,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
