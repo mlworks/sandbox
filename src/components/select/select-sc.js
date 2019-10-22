@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import SelectFauxSC from './select-faux-sc'
 
 // Constants
-import {colors} from 'constants/styles'
+import {border} from 'constants/styles'
 
 const SelectSC = styled.select`
   position: absolute;
@@ -18,7 +18,7 @@ const SelectSC = styled.select`
   appearance: none;
 
   &:active + ${SelectFauxSC}, &:focus + ${SelectFauxSC} {
-    border-bottom-color: ${colors.accentRed};
+    border-color: ${border.focusColor};
   }
 `
 

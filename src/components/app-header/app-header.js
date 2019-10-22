@@ -50,6 +50,9 @@ const AppHeader = () => {
           <NavItem to="/" onClick={dismissModal} isActive={isActive}>
             Home
           </NavItem>
+          <NavItem to="/accordion" onClick={dismissModal} isActive={isActive}>
+            Accordion
+          </NavItem>
           <NavItem to="/form" onClick={dismissModal} isActive={isActive}>
             Form
           </NavItem>

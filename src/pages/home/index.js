@@ -23,8 +23,8 @@ const Home = () => (
         I’m passionate about the latest front-end tech and tools, writing
         semantically correct HTML, clean CSS as well as making sure the
         components meet the a11y (web accessible) standard. Here you'll find a
-        collection of components that I've been creating and experimenting on an
-        ongoing basis.
+        collection of components that I've been experimenting on an ongoing
+        basis.
       </p>
 
       <Spacing marginTop="xlg">
