@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 // Components
 import Button from 'components/button'
-import FlexBox from 'components/flex-box'
 import FlexItem from 'components/flex-item'
 
 // Constants
