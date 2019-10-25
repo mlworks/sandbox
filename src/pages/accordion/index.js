@@ -5,24 +5,27 @@ import Accordion from 'components/accordion'
 import AccordionItem from 'components/accordion/accordion-item'
 import Card from 'components/card'
 import FormExample from 'components/form-example'
+import StackItem from 'components/stack-item'
 import Tabs from 'components/tabs'
 import TabPaneSC from 'components/tabs/tab-pane-sc'
 
 const AccordionPage = () => (
   <React.Fragment>
-    <Card>
-      <h2>Accordion Example</h2>
-      <p>
-        Tab to an accordion header and try up/down arrow keys. You will cycle
-        through the headers.
-      </p>
-      <p>
-        Tapping on space/enter key while focused on the header will open up the
-        accordion item. You can then tab to focus elements in the content if
-        there are focusable element(s).
-      </p>
-    </Card>
-    <Card>
+    <StackItem>
+      <Card>
+        <h2>Accordion Example</h2>
+        <p>
+          Tab to an accordion header and try up/down arrow keys. You will cycle
+          through the headers.
+        </p>
+        <p>
+          Tapping on space/enter key while focused on the header will open up
+          the accordion item. You can then tab to focus elements in the content
+          if there are focusable element(s).
+        </p>
+      </Card>
+    </StackItem>
+    <StackItem>
       <Accordion>
         <AccordionItem label="Accordion Item 1">
           <Tabs>
@@ -75,7 +78,7 @@ const AccordionPage = () => (
           <FormExample />
         </AccordionItem>
       </Accordion>
-    </Card>
+    </StackItem>
   </React.Fragment>
 )
 

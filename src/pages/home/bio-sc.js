@@ -4,9 +4,11 @@ import styled from 'styled-components'
 import Card from 'components/card'
 
 // Constants
-import {colors, spacing} from 'constants/styles'
+import {colors, layout, spacing} from 'constants/styles'
 
 const BioSC = styled(Card)`
+  border-left: ${layout.subUnit} solid ${colors.accentRed};
+
   img {
     float: right;
     margin-bottom: ${spacing.md};

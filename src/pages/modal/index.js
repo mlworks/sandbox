@@ -10,6 +10,7 @@ import Input from 'components/input'
 import Modal from 'components/modal'
 import Select from 'components/select'
 import Spacing from 'components/spacing'
+import StackItem from 'components/stack-item'
 
 const ModalExample = () => {
   const [isOpen, toggleModal] = useState(false)
@@ -18,67 +19,71 @@ const ModalExample = () => {
 
   return (
     <React.Fragment>
-      <Card>
-        <h2>Modal Example</h2>
-        <p>
-          Play around with the controls below to see how the modal animates.
-        </p>
-        <p>
-          Once modal is opened, try tabbing / shift+tabbing. Focus should be
-          trapped inside the modal until the modal is closed. If you press 'ESC'
-          key, it will dismiss the modal.
-        </p>
-      </Card>
-      <Card>
-        <FieldRow>
-          <Field id="coverage" label={`Modal Coverage: ${coverage}%`}>
-            <Input
-              id="coverage"
-              type="range"
-              min="50"
-              max="100"
-              step="5"
-              value={coverage}
-              onChange={event => setModalCoverage(event.target.valueAsNumber)}
-            />
-          </Field>
+      <StackItem>
+        <Card>
+          <h2>Modal Example</h2>
+          <p>
+            Play around with the controls below to see how the modal animates.
+          </p>
+          <p>
+            Once modal is opened, try tabbing / shift+tabbing. Focus should be
+            trapped inside the modal until the modal is closed. If you press
+            'ESC' key, it will dismiss the modal.
+          </p>
+        </Card>
+      </StackItem>
+      <StackItem>
+        <Card>
+          <FieldRow>
+            <Field id="coverage" label={`Modal Coverage: ${coverage}%`}>
+              <Input
+                id="coverage"
+                type="range"
+                min="50"
+                max="100"
+                step="5"
+                value={coverage}
+                onChange={event => setModalCoverage(event.target.valueAsNumber)}
+              />
+            </Field>
 
-          <Field id="effect" label="Modal Animation Style">
-            <Select
-              id="effect"
-              options={[
-                {
-                  value: 'dialog',
-                  label: 'Dialog',
-                },
-                {
-                  value: 'slide-top',
-                  label: 'Slide From Top',
-                },
-                {
-                  value: 'slide-left',
-                  label: 'Slide From Left',
-                },
-                {
-                  value: 'slide-right',
-                  label: 'Slide From Right',
-                },
-                {
-                  value: 'slide-bottom',
-                  label: 'Slide From Bottom',
-                },
-              ]}
-              value={effect}
-              onChange={event => setModalEffect(event.target.value)}
-            />
-          </Field>
-        </FieldRow>
-        <Spacing marginTop="xlg">
-          <ButtonPrimary onClick={() => toggleModal(true)}>
-            Open Modal
-          </ButtonPrimary>
-        </Spacing>
-      </Card>
+            <Field id="effect" label="Modal Animation Style">
+              <Select
+                id="effect"
+                options={[
+                  {
+                    value: 'dialog',
+                    label: 'Dialog',
+                  },
+                  {
+                    value: 'slide-top',
+                    label: 'Slide From Top',
+                  },
+                  {
+                    value: 'slide-left',
+                    label: 'Slide From Left',
+                  },
+                  {
+                    value: 'slide-right',
+                    label: 'Slide From Right',
+                  },
+                  {
+                    value: 'slide-bottom',
+                    label: 'Slide From Bottom',
+                  },
+                ]}
+                value={effect}
+                onChange={event => setModalEffect(event.target.value)}
+              />
+            </Field>
+          </FieldRow>
+          <Spacing marginTop="xlg">
+            <ButtonPrimary onClick={() => toggleModal(true)}>
+              Open Modal
+            </ButtonPrimary>
+          </Spacing>
+        </Card>
+      </StackItem>
 
       <Modal
         coverage={coverage}
