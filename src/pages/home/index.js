@@ -35,7 +35,7 @@ const Home = () => (
         rel="noopener noreferrer"
         target="_blank"
       >
-        <MaterialIcon icon="external-link" />{' '}
+        <MaterialIcon icon="external_link" />{' '}
         https://www.linkedin.com/in/michael-lee-a1585a2a
       </a>
       <br />
@@ -44,7 +44,7 @@ const Home = () => (
         rel="noopener noreferrer"
         target="_blank"
       >
-        <MaterialIcon icon="external-link" /> https://github.com/mlworks/sandbox
+        <MaterialIcon icon="external_link" /> https://github.com/mlworks/sandbox
       </a>
     </Spacing>
   </BioSC>

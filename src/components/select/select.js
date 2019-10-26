@@ -43,7 +43,7 @@ const Select = ({placeholder, options, value, onChange, ...props}) => {
       <SelectFauxSC>
         <FlexItem>{selectedOption.label || placeholder}</FlexItem>
         <FlexItem flex="0 0 auto">
-          <MaterialIcon icon="arrow-down" />
+          <MaterialIcon icon="arrow_down" />
         </FlexItem>
       </SelectFauxSC>
     </SelectWrapperSC>

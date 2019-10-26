@@ -15,7 +15,15 @@ const CarouselPage = () => (
     </StackItem>
     <StackItem>
       <Card>
-        <Carousel />
+        <Carousel>
+          <div>a</div>
+          <div>
+            <button>b</button>
+          </div>
+          <div>c</div>
+          <div>d</div>
+          <div>e</div>
+        </Carousel>
       </Card>
     </StackItem>
   </React.Fragment>
