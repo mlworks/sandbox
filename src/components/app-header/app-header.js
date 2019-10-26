@@ -10,6 +10,9 @@ import NavItem from 'components/nav-item'
 // SC
 import AppHeaderSC from './app-header-sc'
 
+// Routes
+import routes from 'constants/route-definitions'
+
 const isActive = (match, location) => {
   if (!match) {
     return false
@@ -47,21 +50,16 @@ const AppHeader = () => {
         onDismiss={dismissModal}
       >
         <nav>
-          <NavItem to="/" onClick={dismissModal} isActive={isActive}>
-            Home
-          </NavItem>
-          <NavItem to="/accordion" onClick={dismissModal} isActive={isActive}>
-            Accordion
-          </NavItem>
-          <NavItem to="/form" onClick={dismissModal} isActive={isActive}>
-            Form
-          </NavItem>
-          <NavItem to="/modal" onClick={dismissModal} isActive={isActive}>
-            Modal
-          </NavItem>
-          <NavItem to="/tabs" onClick={dismissModal} isActive={isActive}>
-            Tabs
-          </NavItem>
+          {routes.map(({name, path}) => (
+            <NavItem
+              key={path}
+              to={path}
+              onClick={dismissModal}
+              isActive={isActive}
+            >
+              {name}
+            </NavItem>
+          ))}
         </nav>
       </Modal>
     </React.Fragment>
