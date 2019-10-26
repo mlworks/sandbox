@@ -42,8 +42,8 @@ const AccordionItem = React.forwardRef(({children, label, onKeyDown}, ref) => {
       </AccordionHeaderSC>
 
       <AnimateHeight
-        duration={250}
-        easing="ease-out"
+        duration={300}
+        easing="cubic-bezier(0.25, 0.7, 0.01, 0.8)"
         height={isOpen ? 'auto' : 0}
       >
         <AccordionPanelSC
