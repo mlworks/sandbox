@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 // Component
 import Button from 'components/button'
+import FlexItem from 'components/flex-item'
 import MaterialIcon from 'components/material-icon'
 
 // SC
@@ -18,35 +19,43 @@ const CarouselControls = ({
   onSetActiveItem,
 }) => (
   <CarouselControlsSC>
-    <Button
-      aria-controls={`slide-${prevIndex}`}
-      disabled={prevIndex === activeItem}
-      onClick={onPrevItem}
-    >
-      <MaterialIcon icon="chevron_left" />
-    </Button>
-    <ol>
-      {[...Array(numOfItems)].map((_, index) => (
-        <li key={index}>
-          <Button
-            id={`item-${index}`}
-            aria-controls={`slide-${index}`}
-            aria-selected={activeItem === index}
-            role="tab"
-            onClick={() => onSetActiveItem(index)}
-          >
-            Item {index + 1}
-          </Button>
-        </li>
-      ))}
-    </ol>
-    <Button
-      aria-controls={`slide-${nextIndex}`}
-      disabled={nextIndex === activeItem}
-      onClick={onNextItem}
-    >
-      <MaterialIcon icon="chevron_right" />
-    </Button>
+    <FlexItem flex="0 0 auto">
+      <Button
+        aria-controls={`slide-${prevIndex}`}
+        aria-label="Show previous item"
+        disabled={prevIndex === activeItem}
+        onClick={onPrevItem}
+      >
+        <MaterialIcon icon="chevron_left" />
+      </Button>
+    </FlexItem>
+    <FlexItem>
+      <ol>
+        {[...Array(numOfItems)].map((_, index) => (
+          <li key={index}>
+            <Button
+              id={`item-${index}`}
+              aria-controls={`slide-${index}`}
+              aria-selected={activeItem === index}
+              role="tab"
+              onClick={() => onSetActiveItem(index)}
+            >
+              Item {index + 1}
+            </Button>
+          </li>
+        ))}
+      </ol>
+    </FlexItem>
+    <FlexItem flex="0 0 auto">
+      <Button
+        aria-controls={`slide-${nextIndex}`}
+        aria-label="Show next item"
+        disabled={nextIndex === activeItem}
+        onClick={onNextItem}
+      >
+        <MaterialIcon icon="chevron_right" />
+      </Button>
+    </FlexItem>
   </CarouselControlsSC>
 )
 

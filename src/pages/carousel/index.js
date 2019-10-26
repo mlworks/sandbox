@@ -3,6 +3,7 @@ import React from 'react'
 // Components
 import Card from 'components/card'
 import Carousel from 'components/carousel'
+import CarouselItem from 'components/carousel/carousel-item'
 import StackItem from 'components/stack-item'
 
 const CarouselPage = () => (
@@ -16,13 +17,13 @@ const CarouselPage = () => (
     <StackItem>
       <Card>
         <Carousel>
-          <div>a</div>
-          <div>
+          <CarouselItem>a</CarouselItem>
+          <CarouselItem>
             <button>b</button>
-          </div>
-          <div>c</div>
-          <div>d</div>
-          <div>e</div>
+          </CarouselItem>
+          <CarouselItem>c</CarouselItem>
+          <CarouselItem>d</CarouselItem>
+          <CarouselItem>e</CarouselItem>
         </Carousel>
       </Card>
     </StackItem>
