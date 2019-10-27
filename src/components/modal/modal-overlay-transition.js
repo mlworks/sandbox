@@ -9,7 +9,7 @@ const exitActive = `${animationClassName}-exit-active`
 
 const ModalOverlayTransition = styled(CSSTransition).attrs({
   classNames: animationClassName,
-  timeout: 150,
+  timeout: 250,
 })`
   &.${enter} {
     opacity: 0;

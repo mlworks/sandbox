@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 // Component
+import ButtonRaised from 'components/button-raised'
 import FlexBox from 'components/flex-box'
 
 // Constants
@@ -20,8 +21,12 @@ const CarouselControlsSC = styled(FlexBox).attrs({
   pointer-events: none;
   transform: translateY(-50%);
 
-  button {
+  ${ButtonRaised} {
     pointer-events: auto;
+
+    &[disabled] {
+      transform: scale(0);
+    }
   }
 `
 

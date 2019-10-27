@@ -13,6 +13,7 @@ const ButtonRaised = styled(ButtonBase)`
   border-radius: 50%;
   background: ${neutrals.neutral00};
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+  transition: 0.2s ease-out all;
 
   &:active:not([disabled]),
   &:hover:not([disabled]) {

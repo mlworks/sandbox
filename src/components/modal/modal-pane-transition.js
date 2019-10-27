@@ -16,7 +16,7 @@ const transformMap = {
 
 const ModalPaneTransition = styled(CSSTransition).attrs({
   classNames: animationClassName,
-  timeout: 200,
+  timeout: 300,
 })`
   &.${enter} {
     opacity: 0;

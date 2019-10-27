@@ -14,7 +14,7 @@ const ButtonSC = styled(ButtonBase)`
 
   font-weight: 500;
 
-  transition: 0.2s ease-out background;
+  transition: 0.2s ease-out all;
   -webkit-appearance: none;
 
   &:active:not([disabled]),
