@@ -28,6 +28,10 @@ const CarouselScroller = ({activeItem, children, onNextItem, onPrevItem}) => {
   const getEventX = event =>
     /touch/.test(event.type) ? event.touches[0].clientX : event.clientX
 
+  const resetScrollPosition = () => {
+    setTranslateX(activeItem * scrollerEl.current.offsetWidth)
+    setInitialX(null)
+  }
   const handleDragStart = event => {
     setInitialX(getEventX(event))
     setInitialTranslateX(translateX)
@@ -50,20 +54,17 @@ const CarouselScroller = ({activeItem, children, onNextItem, onPrevItem}) => {
       (activeItem === 0 && delta < 0) ||
       Math.abs(delta) <= threshold
     ) {
-      setTranslateX(activeItem * scrollerWidth)
+      resetScrollPosition()
+    } else if (delta > 0) {
+      onNextItem()
     } else {
-      if (delta > 0) {
-        onNextItem()
-      } else {
-        onPrevItem()
-      }
+      onPrevItem()
     }
 
     setInitialX(null)
   }
 
-  const recalcSlidePosition = event =>
-    setTranslateX(activeItem * scrollerEl.current.offsetWidth)
+  const recalcSlidePosition = event => resetScrollPosition()
 
   useEffect(() => {
     window.addEventListener('resize', recalcSlidePosition)
@@ -85,6 +86,7 @@ const CarouselScroller = ({activeItem, children, onNextItem, onPrevItem}) => {
       onMouseDown={handleDragStart}
       onMouseUp={handleDragEnd}
       onMouseMove={handleDragMove}
+      onMouseOut={resetScrollPosition}
       onTransitionEnd={() => refs[activeItem].current.focus()}
     >
       {React.Children.map(children, (child, index) => {
