@@ -15,10 +15,15 @@ const BioSC = styled(Card)`
     margin-left: ${spacing.md};
     max-width: 150px;
     border-radius: 50%;
+
+    @media (max-width: 400px) {
+      max-width: 100px;
+    }
   }
 
   a {
     color: ${colors.accentRed};
+    word-break: break-all;
     text-decoration: none;
   }
 

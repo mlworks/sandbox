@@ -18,6 +18,7 @@ const ButtonPrimary = styled(Button)`
 
   &[disabled] {
     background: #bd9595;
+    colors: #dadada;
   }
 `
 

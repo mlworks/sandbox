@@ -70,7 +70,7 @@ const FormExample = () => {
             {...bindAddress}
           />
         </Field>
-        <Field label="Country" id="country" flex="0 0 200px">
+        <Field label="Country" id="country" flex="0 0 30%">
           <Select
             id="country"
             options={[
