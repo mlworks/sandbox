@@ -1,86 +1,26 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useState} from 'react'
+import PropTypes from 'prop-types'
 
 // Components
 import CarouselControls from './carousel-controls'
+import CarouselScroller from './carousel-scroller'
 
 // SC
 import CarouselIndicatorSC from './carousel-indicator-sc'
 import CarouselInnerSC from './carousel-inner-sc'
 import CarouselPaginationSC from './carousel-pagination-sc'
-import CarouselScrollerSC from './carousel-scroller-sc'
 
 const getNextIndex = (currentIndex, totalItems) =>
   currentIndex + 1 === totalItems ? currentIndex : currentIndex + 1
 const getPrevIndex = currentIndex => (currentIndex <= 1 ? 0 : currentIndex - 1)
 
 const Carousel = ({children}) => {
-  const scrollerEl = useRef(null)
-  const refs = []
   const numOfItems = React.Children.count(children)
   const [activeItem, setActiveItem] = useState(0)
-  const [translateX, setTranslateX] = useState(0)
 
-  const onSetActiveItem = index => {
-    setActiveItem(index)
-    setTranslateX(index * scrollerEl.current.offsetWidth)
-    // refs[index].current.focus()
-  }
+  const onSetActiveItem = index => setActiveItem(index)
   const onNextItem = () => onSetActiveItem(getNextIndex(activeItem, numOfItems))
   const onPrevItem = () => onSetActiveItem(getPrevIndex(activeItem))
-  const handleKeyPress = event => {
-    // Right Arrow (Advancing forward)
-    if (event.keyCode === 39) {
-      onNextItem()
-    }
-
-    // Left Arrow (Moving backwards)
-    if (event.keyCode === 37) {
-      onPrevItem()
-    }
-  }
-
-  const [initialX, setInitialX] = useState(null)
-  const [initialTranslateX, setInitialTranslateX] = useState(0)
-  const [endX, setEndX] = useState(0)
-
-  const getEventX = event =>
-    /touch/.test(event.type) ? event.touches[0].clientX : event.clientX
-
-  const handleDragStart = event => {
-    setInitialX(getEventX(event))
-    setInitialTranslateX(translateX)
-  }
-  const handleDragEnd = event => {
-    const delta = initialX - endX
-    const scrollerWidth = scrollerEl.current.offsetWidth
-    const threshold = scrollerWidth / 4
-    if (Math.abs(delta) > threshold) {
-      if (delta > 0) {
-        onNextItem()
-      } else {
-        onPrevItem()
-      }
-    } else {
-      setTranslateX(activeItem * scrollerWidth)
-    }
-    setInitialX(null)
-  }
-  const handleDragMove = event => {
-    if (initialX) {
-      setTranslateX(Math.round(initialTranslateX + initialX - getEventX(event)))
-      setEndX(getEventX(event))
-    }
-  }
-
-  const recalcSlidePosition = event =>
-    setTranslateX(activeItem * scrollerEl.current.offsetWidth)
-
-  useEffect(() => {
-    window.addEventListener('resize', recalcSlidePosition)
-    return () => {
-      window.removeEventListener('resize', recalcSlidePosition)
-    }
-  })
 
   return (
     <div>
@@ -92,31 +32,13 @@ const Carousel = ({children}) => {
           onNextItem={onNextItem}
           onPrevItem={onPrevItem}
         />
-        <CarouselScrollerSC
-          id="carousel-scroller"
-          isDragActive={!!initialX}
-          ref={scrollerEl}
-          translateX={translateX}
-          onKeyDown={handleKeyPress}
-          onTouchStart={handleDragStart}
-          onTouchEnd={handleDragEnd}
-          onTouchMove={handleDragMove}
-          onMouseDown={handleDragStart}
-          onMouseUp={handleDragEnd}
-          onMouseMove={handleDragMove}
+        <CarouselScroller
+          activeItem={activeItem}
+          onNextItem={onNextItem}
+          onPrevItem={onPrevItem}
         >
-          {React.Children.map(children, (child, index) => {
-            refs[index] = React.createRef()
-            return React.cloneElement(child, {
-              'aria-hidden': index === activeItem ? false : true,
-              'aria-labelledby': `item-${index}`,
-              id: `slide-${index}`,
-              role: 'tabpanel',
-              tabIndex: index === activeItem ? 0 : -1,
-              ref: refs[index],
-            })
-          })}
-        </CarouselScrollerSC>
+          {children}
+        </CarouselScroller>
       </CarouselInnerSC>
 
       <CarouselPaginationSC>
@@ -135,6 +57,10 @@ const Carousel = ({children}) => {
       </CarouselPaginationSC>
     </div>
   )
+}
+
+Carousel.propTypes = {
+  children: PropTypes.node,
 }
 
 export default Carousel
