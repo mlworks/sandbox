@@ -39,15 +39,16 @@ const Carousel = ({children}) => {
     }
   }
 
-  const [startX, setStartX] = useState(0)
+  const [initialX, setInitialX] = useState(null)
+  const [initialTranslateX, setInitialTranslateX] = useState(0)
   const [endX, setEndX] = useState(0)
-  const handleTouchMove = event => {
-    setEndX(event.touches[0].clientX)
-    console.log(scrollerEl.current.clientWidth, event.touches[0].clientX)
+
+  const handleTouchStart = event => {
+    setInitialX(event.touches[0].clientX)
+    setInitialTranslateX(translateX)
   }
-  const handleTouchStart = event => setStartX(event.touches[0].clientX)
   const handleTouchEnd = event => {
-    const delta = startX - endX
+    const delta = initialX - endX
     const scrollerWidth = scrollerEl.current.offsetWidth
     const threshold = scrollerWidth / 4
     if (Math.abs(delta) > threshold) {
@@ -59,6 +60,13 @@ const Carousel = ({children}) => {
     } else {
       setTranslateX(activeItem * scrollerWidth)
     }
+    setInitialX(null)
+  }
+  const handleTouchMove = event => {
+    setTranslateX(
+      Math.round(initialTranslateX + initialX - event.touches[0].clientX)
+    )
+    setEndX(event.touches[0].clientX)
   }
 
   const recalcSlidePosition = event =>
@@ -83,6 +91,7 @@ const Carousel = ({children}) => {
         />
         <CarouselScrollerSC
           id="carousel-scroller"
+          isDragActive={!!initialX}
           ref={scrollerEl}
           translateX={translateX}
           onKeyDown={handleKeyPress}
