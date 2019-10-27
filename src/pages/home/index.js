@@ -24,6 +24,17 @@ const Home = () => (
       accessible) standards. Here you'll find a collection of components that
       I've been experimenting on an ongoing basis.
     </p>
+    <p>
+      Source code for the component demos can be found here:
+      <br />
+      <a
+        href="https://github.com/mlworks"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        https://github.com/mlworks/sandbox
+      </a>
+    </p>
 
     <Spacing marginTop="xlg">
       <a href="mailto:mlworks@gmail.com">
@@ -43,7 +54,7 @@ const Home = () => (
         rel="noopener noreferrer"
         target="_blank"
       >
-        <MaterialIcon icon="external_link" marginRight="sm" /> GitHub
+        <MaterialIcon icon="external_link" marginRight="sm" /> GitHub Profile
       </a>
     </Spacing>
   </BioSC>
