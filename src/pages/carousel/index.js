@@ -25,18 +25,21 @@ const CarouselPage = () => (
             <img
               src={`${process.env.PUBLIC_URL}/shiba-1.jpg`}
               alt="Shiba Inu"
+              draggable="false"
             />
           </CarouselItem>
           <CarouselItem>
             <img
               src={`${process.env.PUBLIC_URL}/shiba-2.jpg`}
               alt="Shiba Inu"
+              draggable="false"
             />
           </CarouselItem>
           <CarouselItem>
             <img
               src={`${process.env.PUBLIC_URL}/shiba-3.jpg`}
               alt="Shiba Inu"
+              draggable="false"
             />
           </CarouselItem>
         </Carousel>

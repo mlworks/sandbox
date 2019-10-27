@@ -43,11 +43,14 @@ const Carousel = ({children}) => {
   const [initialTranslateX, setInitialTranslateX] = useState(0)
   const [endX, setEndX] = useState(0)
 
-  const handleTouchStart = event => {
-    setInitialX(event.touches[0].clientX)
+  const getEventX = event =>
+    /touch/.test(event.type) ? event.touches[0].clientX : event.clientX
+
+  const handleDragStart = event => {
+    setInitialX(getEventX(event))
     setInitialTranslateX(translateX)
   }
-  const handleTouchEnd = event => {
+  const handleDragEnd = event => {
     const delta = initialX - endX
     const scrollerWidth = scrollerEl.current.offsetWidth
     const threshold = scrollerWidth / 4
@@ -62,11 +65,11 @@ const Carousel = ({children}) => {
     }
     setInitialX(null)
   }
-  const handleTouchMove = event => {
-    setTranslateX(
-      Math.round(initialTranslateX + initialX - event.touches[0].clientX)
-    )
-    setEndX(event.touches[0].clientX)
+  const handleDragMove = event => {
+    if (initialX) {
+      setTranslateX(Math.round(initialTranslateX + initialX - getEventX(event)))
+      setEndX(getEventX(event))
+    }
   }
 
   const recalcSlidePosition = event =>
@@ -95,9 +98,12 @@ const Carousel = ({children}) => {
           ref={scrollerEl}
           translateX={translateX}
           onKeyDown={handleKeyPress}
-          onTouchMove={handleTouchMove}
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
+          onTouchStart={handleDragStart}
+          onTouchEnd={handleDragEnd}
+          onTouchMove={handleDragMove}
+          onMouseDown={handleDragStart}
+          onMouseUp={handleDragEnd}
+          onMouseMove={handleDragMove}
         >
           {React.Children.map(children, (child, index) => {
             refs[index] = React.createRef()
