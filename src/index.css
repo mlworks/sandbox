@@ -41,6 +41,17 @@ hr {
   border-top: 1px solid #d4d4d4;
 }
 
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 .app-contents {
   max-width: 640px;
 }
