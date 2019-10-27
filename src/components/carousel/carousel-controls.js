@@ -8,6 +8,7 @@ import MaterialIcon from 'components/material-icon'
 
 // SC
 import CarouselControlsSC from './carousel-controls-sc'
+import CarouselIndicatorSC from './carousel-indicator-sc'
 
 const CarouselControls = ({
   activeItem,
@@ -33,15 +34,14 @@ const CarouselControls = ({
       <ol>
         {[...Array(numOfItems)].map((_, index) => (
           <li key={index}>
-            <Button
+            <CarouselIndicatorSC
               id={`item-${index}`}
               aria-controls={`slide-${index}`}
+              aria-label={`Item ${index + 1}`}
               aria-selected={activeItem === index}
               role="tab"
               onClick={() => onSetActiveItem(index)}
-            >
-              Item {index + 1}
-            </Button>
+            />
           </li>
         ))}
       </ol>

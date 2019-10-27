@@ -15,6 +15,10 @@ const ButtonPrimary = styled(Button)`
   &:hover:not([disabled]) {
     background: ${colors.darkAccentRed};
   }
+
+  &[disabled] {
+    background: #bd9595;
+  }
 `
 
 export default ButtonPrimary

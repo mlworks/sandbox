@@ -1,9 +1,13 @@
 import styled from 'styled-components'
 
 import FlexBox from 'components/flex-box'
-const CarouselControlsSC = styled(FlexBox)`
+const CarouselControlsSC = styled(FlexBox).attrs({
+  alignItems: 'center',
+})`
   ol {
     display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0;
     padding: 0;
     list-style: none;
