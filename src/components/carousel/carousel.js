@@ -39,6 +39,28 @@ const Carousel = ({children}) => {
     }
   }
 
+  const [startX, setStartX] = useState(0)
+  const [endX, setEndX] = useState(0)
+  const handleTouchMove = event => {
+    setEndX(event.touches[0].clientX)
+    console.log(scrollerEl.current.clientWidth, event.touches[0].clientX)
+  }
+  const handleTouchStart = event => setStartX(event.touches[0].clientX)
+  const handleTouchEnd = event => {
+    const delta = startX - endX
+    const scrollerWidth = scrollerEl.current.offsetWidth
+    const threshold = scrollerWidth / 4
+    if (Math.abs(delta) > threshold) {
+      if (delta > 0) {
+        onNextItem()
+      } else {
+        onPrevItem()
+      }
+    } else {
+      setTranslateX(activeItem * scrollerWidth)
+    }
+  }
+
   const recalcSlidePosition = event =>
     setTranslateX(activeItem * scrollerEl.current.offsetWidth)
 
@@ -64,6 +86,9 @@ const Carousel = ({children}) => {
           ref={scrollerEl}
           translateX={translateX}
           onKeyDown={handleKeyPress}
+          onTouchMove={handleTouchMove}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
           {React.Children.map(children, (child, index) => {
             refs[index] = React.createRef()
