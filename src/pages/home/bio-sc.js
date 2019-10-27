@@ -26,11 +26,6 @@ const BioSC = styled(Card)`
     word-break: break-all;
     text-decoration: none;
   }
-
-  i {
-    margin-right: ${spacing.sm};
-    vertical-align: middle;
-  }
 `
 
 export default BioSC

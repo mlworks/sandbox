@@ -27,7 +27,7 @@ const Home = () => (
 
     <Spacing marginTop="xlg">
       <a href="mailto:mlworks@gmail.com">
-        <MaterialIcon icon="mail" /> mlworks@gmail.com
+        <MaterialIcon icon="mail" marginRight="sm" /> mlworks@gmail.com
       </a>
       <br />
       <a
@@ -35,16 +35,15 @@ const Home = () => (
         rel="noopener noreferrer"
         target="_blank"
       >
-        <MaterialIcon icon="external_link" />{' '}
-        https://www.linkedin.com/in/michael-lee-a1585a2a
+        <MaterialIcon icon="external_link" marginRight="sm" /> LinkedIn Profile
       </a>
       <br />
       <a
-        href="https://github.com/mlworks/sandbox"
+        href="https://github.com/mlworks"
         rel="noopener noreferrer"
         target="_blank"
       >
-        <MaterialIcon icon="external_link" /> https://github.com/mlworks/sandbox
+        <MaterialIcon icon="external_link" marginRight="sm" /> GitHub
       </a>
     </Spacing>
   </BioSC>

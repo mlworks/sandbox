@@ -16,8 +16,11 @@ const iconMap = {
   minus: '&#xe15b;',
 }
 
-const MaterialIcon = ({icon}) => (
-  <MaterialIconSC dangerouslySetInnerHTML={{__html: iconMap[icon]}} />
+const MaterialIcon = ({icon, ...props}) => (
+  <MaterialIconSC
+    dangerouslySetInnerHTML={{__html: iconMap[icon]}}
+    {...props}
+  />
 )
 
 MaterialIcon.propTypes = {
