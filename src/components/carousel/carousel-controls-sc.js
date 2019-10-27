@@ -1,21 +1,27 @@
 import styled from 'styled-components'
 
+// Component
 import FlexBox from 'components/flex-box'
+
+// Constants
+import {zIndex} from 'constants/styles'
+
 const CarouselControlsSC = styled(FlexBox).attrs({
   alignItems: 'center',
+  justifyContent: 'space-between',
+  padding: 'md',
 })`
-  ol {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  z-index: ${zIndex.z1};
 
-  li {
-    flex: 0 0 auto;
-    margin: 0 4px;
+  pointer-events: none;
+  transform: translateY(-50%);
+
+  button {
+    pointer-events: auto;
   }
 `
 

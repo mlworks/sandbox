@@ -1,9 +1,13 @@
-import React, {useRef, useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 
 // Components
 import CarouselControls from './carousel-controls'
-import CarouselInner from './carousel-inner'
-import CarouselScroller from './carousel-scroller'
+
+// SC
+import CarouselIndicatorSC from './carousel-indicator-sc'
+import CarouselInnerSC from './carousel-inner-sc'
+import CarouselPaginationSC from './carousel-pagination-sc'
+import CarouselScrollerSC from './carousel-scroller-sc'
 
 const getNextIndex = (currentIndex, totalItems) =>
   currentIndex + 1 === totalItems ? currentIndex : currentIndex + 1
@@ -21,11 +25,8 @@ const Carousel = ({children}) => {
     setTranslateX(index * scrollerEl.current.offsetWidth)
     // refs[index].current.focus()
   }
-
   const onNextItem = () => onSetActiveItem(getNextIndex(activeItem, numOfItems))
-
   const onPrevItem = () => onSetActiveItem(getPrevIndex(activeItem))
-
   const handleKeyPress = event => {
     // Right Arrow (Advancing forward)
     if (event.keyCode === 39) {
@@ -38,24 +39,30 @@ const Carousel = ({children}) => {
     }
   }
 
-  // useEffect(() => {
-  //   setCount(value.length)
-  // }, [maxLength, value])
+  const recalcSlidePosition = event => {
+    setTranslateX(activeItem * scrollerEl.current.offsetWidth)
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', recalcSlidePosition)
+
+    return () => {
+      window.removeEventListener('resize', recalcSlidePosition)
+    }
+  })
 
   return (
     <div>
-      <CarouselControls
-        activeItem={activeItem}
-        nextIndex={getNextIndex(activeItem, numOfItems)}
-        numOfItems={numOfItems}
-        prevIndex={getPrevIndex(activeItem)}
-        onNextItem={onNextItem}
-        onPrevItem={onPrevItem}
-        onSetActiveItem={onSetActiveItem}
-      />
-
-      <CarouselInner>
-        <CarouselScroller
+      <CarouselInnerSC>
+        <CarouselControls
+          activeItem={activeItem}
+          nextIndex={getNextIndex(activeItem, numOfItems)}
+          prevIndex={getPrevIndex(activeItem)}
+          onNextItem={onNextItem}
+          onPrevItem={onPrevItem}
+        />
+        <CarouselScrollerSC
+          id="carousel-scroller"
           ref={scrollerEl}
           translateX={translateX}
           onKeyDown={handleKeyPress}
@@ -71,8 +78,23 @@ const Carousel = ({children}) => {
               ref: refs[index],
             })
           })}
-        </CarouselScroller>
-      </CarouselInner>
+        </CarouselScrollerSC>
+      </CarouselInnerSC>
+
+      <CarouselPaginationSC>
+        {[...Array(numOfItems)].map((_, index) => (
+          <li key={index}>
+            <CarouselIndicatorSC
+              id={`item-${index}`}
+              aria-controls={`slide-${index}`}
+              aria-label={`Item ${index + 1}`}
+              aria-selected={activeItem === index}
+              role="tab"
+              onClick={() => onSetActiveItem(index)}
+            />
+          </li>
+        ))}
+      </CarouselPaginationSC>
     </div>
   )
 }

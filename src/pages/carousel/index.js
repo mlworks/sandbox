@@ -17,13 +17,24 @@ const CarouselPage = () => (
     <StackItem>
       <Card>
         <Carousel>
-          <CarouselItem>a</CarouselItem>
           <CarouselItem>
-            <button>b</button>
+            <img
+              src={`${process.env.PUBLIC_URL}/shiba-1.jpg`}
+              alt="Shiba Inu"
+            />
           </CarouselItem>
-          <CarouselItem>c</CarouselItem>
-          <CarouselItem>d</CarouselItem>
-          <CarouselItem>e</CarouselItem>
+          <CarouselItem>
+            <img
+              src={`${process.env.PUBLIC_URL}/shiba-2.jpg`}
+              alt="Shiba Inu"
+            />
+          </CarouselItem>
+          <CarouselItem>
+            <img
+              src={`${process.env.PUBLIC_URL}/shiba-3.jpg`}
+              alt="Shiba Inu"
+            />
+          </CarouselItem>
         </Carousel>
       </Card>
     </StackItem>
