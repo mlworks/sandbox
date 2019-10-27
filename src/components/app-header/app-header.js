@@ -43,9 +43,9 @@ const AppHeader = () => {
       </AppHeaderSC>
 
       <Modal
-        coverage={40}
         effect="slide-left"
         isOpen={isOpen}
+        maxWidth="320px"
         title="Navigation"
         onDismiss={dismissModal}
       >

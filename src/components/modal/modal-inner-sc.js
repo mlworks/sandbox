@@ -8,6 +8,7 @@ const ModalInnerSC = styled.article`
   flex-direction: column;
   flex: 1 1 auto;
   max-height: 100%;
+  max-width: ${({maxWidth}) => maxWidth || 'none'};
   overflow: hidden;
 
   background: ${colors.bodyColor};

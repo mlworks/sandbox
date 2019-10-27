@@ -23,9 +23,17 @@ import ModalPaneTransition from './modal-pane-transition'
 import ModalOverlayTransition from './modal-overlay-transition'
 
 // Enhance with focus trap
-const FocusTrap = withFocusTrap(ModalInnerSC)
+const FocusTrapModalInner = withFocusTrap(ModalInnerSC)
 
-const Modal = ({children, coverage, effect, isOpen, title, onDismiss}) => (
+const Modal = ({
+  children,
+  coverage,
+  effect,
+  isOpen,
+  maxWidth,
+  title,
+  onDismiss,
+}) => (
   <Portal id="modal-root">
     <TransitionGroup component={null}>
       {isOpen && (
@@ -41,7 +49,7 @@ const Modal = ({children, coverage, effect, isOpen, title, onDismiss}) => (
       {isOpen && (
         <ModalPaneTransition effect={effect}>
           <ModalPaneSC effect={effect} coverage={coverage}>
-            <FocusTrap onDismiss={onDismiss}>
+            <FocusTrapModalInner maxWidth={maxWidth} onDismiss={onDismiss}>
               <ModalHeaderSC>
                 <FlexItem padding="md lg">
                   <h2 id="modal-label">{title}</h2>
@@ -57,7 +65,7 @@ const Modal = ({children, coverage, effect, isOpen, title, onDismiss}) => (
                 </FlexItem>
               </ModalHeaderSC>
               <ModalContentSC id="modal-desc">{children}</ModalContentSC>
-            </FocusTrap>
+            </FocusTrapModalInner>
           </ModalPaneSC>
         </ModalPaneTransition>
       )}
