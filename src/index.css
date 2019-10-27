@@ -57,7 +57,7 @@ img {
 }
 
 .mouse-intent [role='button']:focus,
-.mouse-intent [tabindex='0']:focus,
+.mouse-intent [tabindex]:focus,
 .mouse-intent button:focus {
   outline: none;
 }
