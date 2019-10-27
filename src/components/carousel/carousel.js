@@ -39,13 +39,11 @@ const Carousel = ({children}) => {
     }
   }
 
-  const recalcSlidePosition = event => {
+  const recalcSlidePosition = event =>
     setTranslateX(activeItem * scrollerEl.current.offsetWidth)
-  }
 
   useEffect(() => {
     window.addEventListener('resize', recalcSlidePosition)
-
     return () => {
       window.removeEventListener('resize', recalcSlidePosition)
     }

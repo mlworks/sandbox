@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import ButtonBase from 'components/button-base'
 
 // Constants
-import {colors, neutrals, unit} from 'constants/styles'
+import {neutrals, unit} from 'constants/styles'
 
 const CarouselIndicatorSC = styled(ButtonBase)`
   display: block;

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import ButtonBase from 'components/button-base'
 
 // Constants
-import {border, colors, layout, neutrals} from 'constants/styles'
+import {layout, neutrals} from 'constants/styles'
 
 const ButtonRaised = styled(ButtonBase)`
   display: flex;

@@ -11,7 +11,11 @@ const CarouselPage = () => (
     <StackItem>
       <Card>
         <h2>Carousel Example</h2>
-        <p>TBD</p>
+        <p>
+          Keyboard accessible carousel component. Once tabbed to a carousel
+          item, pressing left or right arrow keys will automatically cycle
+          through the carousel.
+        </p>
       </Card>
     </StackItem>
     <StackItem>
