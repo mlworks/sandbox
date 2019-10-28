@@ -21,6 +21,10 @@ export default [
     path: '/modal',
   },
   {
+    name: 'Progress Bar',
+    path: '/progress-bar',
+  },
+  {
     name: 'Tabs',
     path: '/tabs',
   },
