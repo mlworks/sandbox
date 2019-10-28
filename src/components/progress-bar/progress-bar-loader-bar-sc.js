@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 // Constants
-import {neutrals, unit} from 'constants/styles'
+import {neutrals} from 'constants/styles'
 
 const ProgressBarLoaderBarSC = styled.div.attrs(props => ({
   style: {
@@ -10,7 +10,7 @@ const ProgressBarLoaderBarSC = styled.div.attrs(props => ({
 }))`
   position: relative;
 
-  height: ${unit * 1.5}px;
+  height: 100%;
   background: ${neutrals.neutral10};
 
   transform-origin: top left;

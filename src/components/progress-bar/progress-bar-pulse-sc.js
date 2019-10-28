@@ -1,8 +1,5 @@
 import styled, {keyframes} from 'styled-components'
 
-// Constants
-import {neutrals, unit} from 'constants/styles'
-
 const pulse = keyframes`
   0% {
     transform: translateX(0);
