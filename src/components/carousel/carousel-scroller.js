@@ -10,8 +10,8 @@ const CarouselScroller = ({activeItem, children, onNextItem, onPrevItem}) => {
 
   const [translateX, setTranslateX] = useState(0)
   const [initialX, setInitialX] = useState(null)
-  const [initialTranslateX, setInitialTranslateX] = useState(0)
-  const [endX, setEndX] = useState(0)
+  const [initialTranslateX, setInitialTranslateX] = useState(null)
+  const [endX, setEndX] = useState(null)
 
   const handleKeyPress = event => {
     // Right Arrow (Advancing forward)
@@ -31,6 +31,7 @@ const CarouselScroller = ({activeItem, children, onNextItem, onPrevItem}) => {
   const resetScrollPosition = () => {
     setTranslateX(activeItem * scrollerEl.current.offsetWidth)
     setInitialX(null)
+    setEndX(null)
   }
   const handleDragStart = event => {
     setInitialX(getEventX(event))
@@ -45,6 +46,11 @@ const CarouselScroller = ({activeItem, children, onNextItem, onPrevItem}) => {
     }
   }
   const handleDragEnd = event => {
+    if (!initialX || !endX) {
+      resetScrollPosition()
+      return
+    }
+
     const delta = initialX - endX
     const scrollerWidth = scrollerEl.current.offsetWidth
     const threshold = scrollerWidth / 4
@@ -62,9 +68,10 @@ const CarouselScroller = ({activeItem, children, onNextItem, onPrevItem}) => {
     }
 
     setInitialX(null)
+    setEndX(null)
   }
 
-  const recalcSlidePosition = event => resetScrollPosition()
+  const recalcSlidePosition = () => resetScrollPosition()
 
   useEffect(() => {
     window.addEventListener('resize', recalcSlidePosition)
