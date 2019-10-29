@@ -36,6 +36,7 @@ const ProgressBarPulseSC = styled.div`
   left: 0;
 
   transform-origin: top left;
+
   animation: ${pulse} 1s cubic-bezier(0.25, 0.7, 0.01, 0.8) infinite;
 
   &::before {
@@ -46,7 +47,7 @@ const ProgressBarPulseSC = styled.div`
     height: 100%;
     border-radius: 50%;
     background: none;
-    box-shadow: 0 0 9px 1px #fff;
+    box-shadow: 0 0 8px 1px #fff;
     animation: ${fade} 1s ease-out infinite;
   }
 `

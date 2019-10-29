@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react'
 // Components
 import Card from 'components/card'
 import ProgressBar from 'components/progress-bar'
+import StackItem from 'components/stack-item'
 
 const getProgressValue = value => {
   const num = Math.max(0, Math.min(value + Math.random() * 30, 100))
@@ -16,16 +17,32 @@ const ProgressBarPage = () => {
 
   // Set timer to simulate progress updates
   const update = () => setCurrentValue(getProgressValue(currentValue))
+
   useEffect(() => {
     timer(update)
-  }, [currentValue])
+  })
 
   return (
-    <Card
-      style={{background: 'linear-gradient(-45deg, #031d4a 0%, #0d26f1 100%)'}}
-    >
-      <ProgressBar currentValue={currentValue} />
-    </Card>
+    <React.Fragment>
+      <StackItem>
+        <Card>
+          <h2>Progress Bar</h2>
+          <p>
+            This progress bar is a recreation of the progress bar design found
+            in Playstation 4's UI mimicing the design and animations.
+          </p>
+        </Card>
+      </StackItem>
+      <StackItem>
+        <Card
+          style={{
+            background: '#2c2c2c',
+          }}
+        >
+          <ProgressBar currentValue={currentValue} />
+        </Card>
+      </StackItem>
+    </React.Fragment>
   )
 }
 
