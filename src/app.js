@@ -8,6 +8,9 @@ import Spacing from 'components/spacing'
 // Routes
 import routes from 'constants/route-definitions'
 
+const constructImportPath = name =>
+  `./pages/${name.toLowerCase().replace(/ /g, '-')}`
+
 class App extends React.Component {
   componentDidMount() {
     window.addEventListener('mousedown', this.setMouseIntent)
@@ -36,7 +39,7 @@ class App extends React.Component {
                     exact={exact}
                     path={path}
                     component={React.lazy(() =>
-                      import(`./pages/${name.toLowerCase()}`)
+                      import(`${constructImportPath(name)}`)
                     )}
                   />
                 ))}

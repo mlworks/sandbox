@@ -8,6 +8,8 @@ import {layout, neutrals, spacing} from 'constants/styles'
 
 const ButtonSC = styled(ButtonBase)`
   display: ${({fullWidth}) => (fullWidth ? 'flex' : 'inline-flex')};
+  align-items: center;
+  justify-content: center;
   width: ${({fullWidth}) => (fullWidth ? '100%' : 'auto')};
   padding: ${spacing.md} ${spacing.lg};
   min-height: ${layout.tapSize};
