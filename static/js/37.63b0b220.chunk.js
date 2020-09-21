@@ -1,0 +1,2 @@
+(this.webpackJsonpsandbox=this.webpackJsonpsandbox||[]).push([[37],{112:function(n,t,a){"use strict";a.r(t);var e=a(2),o=a(3),f=a(10),s=a(17),i=a(1);function u(){var n=Object(e.a)(["\n  font-family: 'Roboto', san-serif;\n  font-size: ",";\n\n  "," {\n    text-align: left;\n  }\n\n  "," {\n    flex: 1 1 auto;\n  }\n"]);return u=function(){return n},n}var r=o.a.h3(u(),i.fontSizes.big,f.default,s.default);t.default=r}}]);
+//# sourceMappingURL=37.63b0b220.chunk.js.map

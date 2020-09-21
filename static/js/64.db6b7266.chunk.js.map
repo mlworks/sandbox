@@ -1,1 +1,0 @@
-{"version":3,"sources":["utils/misc.js"],"names":["normalizeLabel","label","replace","toLowerCase"],"mappings":"oGAAA,sDAAO,IAAMA,EAAiB,SAAAC,GAAK,OAAIA,EAAMC,QAAQ,KAAM,KAAKC","file":"static/js/64.db6b7266.chunk.js","sourcesContent":["export const normalizeLabel = label => label.replace(/ /g, '-').toLowerCase()\n"],"sourceRoot":""}

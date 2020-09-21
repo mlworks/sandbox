@@ -1,0 +1,2 @@
+(this.webpackJsonpsandbox=this.webpackJsonpsandbox||[]).push([[63],{135:function(a,t,e){"use strict";e.r(t);var n=e(2),r=e(3),b=e(12);function i(){var a=Object(n.a)([""]);return i=function(){return a},a}var s=Object(r.a)(b.default).attrs((function(a){var t=a.isActive;return{role:"tabpanel",tabIndex:0,"aria-labelledby":a.labelledBy,hidden:!t}}))(i());t.default=s}}]);
+//# sourceMappingURL=63.241a5895.chunk.js.map
