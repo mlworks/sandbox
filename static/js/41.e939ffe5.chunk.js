@@ -1,2 +1,0 @@
-(this.webpackJsonpsandbox=this.webpackJsonpsandbox||[]).push([[41],{116:function(n,t,a){"use strict";a.r(t);var e,s=a(3),o=a(4),f=a(11),i=a(18),b=a(2),l=o.a.h3(e||(e=Object(s.a)(["\n  font-family: 'Roboto', san-serif;\n  font-size: ",";\n\n  "," {\n    text-align: left;\n  }\n\n  "," {\n    flex: 1 1 auto;\n  }\n"])),b.fontSizes.big,f.default,i.default);t.default=l}}]);
-//# sourceMappingURL=41.e939ffe5.chunk.js.map
