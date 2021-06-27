@@ -16,7 +16,7 @@ import StackItem from 'components/stack-item'
 import Tabs from 'components/tabs'
 import TabPaneSC from 'components/tabs/tab-pane-sc'
 
-import BrewTimer from './brew-timer'
+// import BrewTimer from './brew-timer'
 
 const buildPourList = (total40Gram, ratio40, total60Gram, pourCount) => {
   const pour40 = [
@@ -252,9 +252,9 @@ const Coffee = () => {
             </Modal>
           </StackItem>
         </TabPaneSC>
-        <TabPaneSC label="Brew Timer" paddingTop="lg">
+        {/*        <TabPaneSC label="Brew Timer" paddingTop="lg">
           <BrewTimer pourList={pourList} />
-        </TabPaneSC>
+        </TabPaneSC>*/}
       </Tabs>
     </Card>
   )
