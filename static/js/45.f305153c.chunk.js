@@ -1,0 +1,2 @@
+(this.webpackJsonpsandbox=this.webpackJsonpsandbox||[]).push([[45],{106:function(n,a,d){"use strict";d.r(a);var o,e=d(3),r=d(4),c=d(11),s=d(2),t=Object(r.a)(c.default)(o||(o=Object(e.a)(["\n  background: ",";\n  border-radius: ",";\n  color: ",";\n\n  &:active:not([disabled]),\n  &:hover:not([disabled]) {\n    background: ",";\n  }\n\n  &[disabled] {\n    background: #bd9595;\n    colors: #dadada;\n  }\n"])),s.colors.accentRed,s.border.radius,s.neutrals.neutral00,s.colors.darkAccentRed);a.default=t}}]);
+//# sourceMappingURL=45.f305153c.chunk.js.map
