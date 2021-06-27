@@ -24,6 +24,11 @@ const InputSC = styled.input`
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   `}
+
+  &[type="range"] {
+    padding: 0;
+    min-height: initial;
+  }
 `
 
 export default InputSC
