@@ -1,0 +1,2 @@
+(this.webpackJsonpsandbox=this.webpackJsonpsandbox||[]).push([[48],{130:function(n,t,a){"use strict";a.r(t);var e,s=a(3),r=a(4),u=a(19),o=a(2),i=Object(r.a)(u.default)(e||(e=Object(s.a)(["\n  display: block;\n  width: ","px;\n  height: ","px;\n  background: ",";\n  border-radius: 50%;\n  box-shadow: inset 0px 2px 2px -1px rgba(0, 0, 0, 0.3);\n  transition: 0.2s ease-out background-color;\n"])),1.5*o.unit,1.5*o.unit,(function(n){return n["aria-selected"]?o.neutrals.neutral40:o.neutrals.neutral20}));t.default=i}}]);
+//# sourceMappingURL=48.571da6d4.chunk.js.map
