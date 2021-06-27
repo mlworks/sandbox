@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import {fontSizes, spacing} from 'constants/styles'
 
 const FieldLabelSC = styled.label`
-  display: inline-block;
+  display: block;
   padding-left: ${spacing.md};
   margin-bottom: ${spacing.sm};
   font-size: ${fontSizes.small};
