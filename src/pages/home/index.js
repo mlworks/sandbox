@@ -12,14 +12,14 @@ const Home = () => (
     <img src={`${process.env.PUBLIC_URL}/profile.jpg`} alt="Michael Lee" />
     <h2>Hi there, my name is Michael Lee.</h2>
     <p>
-      I’m a front-end developer with over 5 years professional experience
-      located in the beautiful city of Vancouver, BC. I've worked on a variety
-      of projects from mobile-first e-commerce SPAs to an authoring tool for
-      market researchers to construct and deploy their surveys to a web app
-      messenger.
+      I’m a front end developer with over 7 years professional experience
+      originally from Vancouver, BC and now located in Tokyo, Japan. I've worked
+      on a variety of projects from mobile-first e-commerce SPAs to an authoring
+      tool for market researchers to construct and deploy their surveys to a web
+      app messenger.
     </p>
     <p>
-      I’m passionate about the latest front-end tech and tools, writing semantic
+      I’m passionate about the latest front end tech and tools, writing semantic
       HTML, clean CSS as well as making sure the components meet the a11y (web
       accessible) standards. Here you'll find a collection of components that
       I've been experimenting on an ongoing basis.
