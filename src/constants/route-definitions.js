@@ -1,8 +1,12 @@
-export default [
+const routes = [
   {
     name: 'Home',
     path: '/',
     exact: true,
+  },
+  {
+    name: 'Coffee',
+    path: '/coffee',
   },
   {
     name: 'Accordion',
@@ -29,3 +33,5 @@ export default [
     path: '/tabs',
   },
 ]
+
+export default routes
