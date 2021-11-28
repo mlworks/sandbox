@@ -9,6 +9,10 @@ const routes = [
     path: '/coffee',
   },
   {
+    name: 'Tic Tac Toe',
+    path: '/tic-tac-toe',
+  },
+  {
     name: 'Accordion',
     path: '/accordion',
   },
