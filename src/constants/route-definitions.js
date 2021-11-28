@@ -5,6 +5,10 @@ const routes = [
     exact: true,
   },
   {
+    name: 'Dots And Boxes',
+    path: '/dots-and-boxes',
+  },
+  {
     name: 'Coffee',
     path: '/coffee',
   },
