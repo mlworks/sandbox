@@ -2,7 +2,12 @@ import React, {useState, useEffect} from 'react'
 
 // Components
 import Card from 'components/card'
+import FlexBox from 'components/flex-box'
+import FlexItem from 'components/flex-item'
 import StackItem from 'components/stack-item'
+
+import {Box} from './box'
+import {BoxRowSC} from './box-row-sc'
 
 const DotsAndBoxesPage = () => (
   <React.Fragment>
@@ -12,7 +17,9 @@ const DotsAndBoxesPage = () => (
       </Card>
     </StackItem>
     <StackItem>
-      <DotsAndBoxes />
+      <Card>
+        <DotsAndBoxes />
+      </Card>
     </StackItem>
   </React.Fragment>
 )
@@ -24,153 +31,101 @@ const map = {
   x1y1: {},
 }
 
+const GRID_SIZE = 6
+
+const EDGE_MAP = {
+  right: {
+    x: 1,
+    y: 0,
+    adjacentEdge: 'left',
+  },
+  left: {
+    x: -1,
+    y: 0,
+    adjacentEdge: 'right',
+  },
+  top: {
+    x: 0,
+    y: -1,
+    adjacentEdge: 'bottom',
+  },
+  bottom: {
+    x: 0,
+    y: 1,
+    adjacentEdge: 'top',
+  },
+}
+
+const checkBoxFulfilled = (selections = {}) =>
+  Object.values(selections).length >= 3
+const getSelection = (edge, x, y) =>
+  `x${x + EDGE_MAP[edge].x}y${y + EDGE_MAP[edge].y}`
+
 const DotsAndBoxes = () => {
   const [edgeSelections, setEdgeSelection] = useState(map)
   const [currentPlayer, setPlayerTurn] = useState(1)
+  const [player1Score, setPlayer1Score] = useState(0)
+  const [player2Score, setPlayer2Score] = useState(0)
 
   const handleClick = ({x, y, selection, edge}) => {
-    setEdgeSelection((stateSelection) =>
-      Object.assign({}, stateSelection, {[`x${x}y${y}`]: selection})
-    )
-    if (edge === 'right' && !!edgeSelections[`x${x + 1}y${y}`]) {
-      setEdgeSelection((stateSelection) => {
-        const newSelection = Object.assign(
-          {},
-          stateSelection[`x${x + 1}y${y}`],
-          {left: currentPlayer}
-        )
-        return Object.assign({}, stateSelection, {
-          [`x${x + 1}y${y}`]: newSelection,
-        })
-      })
+    const isTarget3sided = checkBoxFulfilled(edgeSelections[`x${x}y${y}`])
+    const targetSelection = {
+      [`x${x}y${y}`]: {
+        ...selection,
+        ...(isTarget3sided && {owner: currentPlayer}),
+      },
     }
-    setPlayerTurn(currentPlayer === 1 ? 2 : 1)
-  }
+    const adjacentBox = edgeSelections[getSelection(edge, x, y)]
+    const isAdjacent3sided = checkBoxFulfilled(adjacentBox)
+    const adjacentSelection = {
+      [getSelection(edge, x, y)]: {
+        ...adjacentBox,
+        [EDGE_MAP[edge].adjacentEdge]: currentPlayer,
+        ...(isAdjacent3sided && {owner: currentPlayer}),
+      },
+    }
 
-  const handleOwnerFulfilled = ({x, y, player}) => {
-    setPlayerTurn(player)
-    setEdgeSelection((stateSelection) => {
-      const newSelection = Object.assign({}, stateSelection[`x${x}y${y}`], {
-        owner: player,
+    setEdgeSelection((stateSelection) =>
+      Object.assign({}, stateSelection, {
+        ...targetSelection,
+        ...adjacentSelection,
       })
-      return Object.assign({}, stateSelection, {
-        [`x${x}y${y}`]: newSelection,
-      })
-    })
+    )
+
+    // Change turn if no boxes filled in
+    if (!isTarget3sided && !isAdjacent3sided) {
+      setPlayerTurn(currentPlayer === 1 ? 2 : 1)
+    } else {
+      const points = [isTarget3sided, isAdjacent3sided].filter(Boolean).length
+      currentPlayer === 1
+        ? setPlayer1Score((score) => score + points)
+        : setPlayer2Score((score) => score + points)
+    }
   }
 
   return (
     <div>
-      <div>
-        <Box
-          x={0}
-          y={0}
-          selection={edgeSelections['x0y0']}
-          player={currentPlayer}
-          onClick={handleClick}
-          onOwnerFulfilled={handleOwnerFulfilled}
-        />
-        <Box
-          x={1}
-          y={0}
-          selection={edgeSelections['x1y0']}
-          player={currentPlayer}
-          onClick={handleClick}
-          onOwnerFulfilled={handleOwnerFulfilled}
-        />
-      </div>
-      <div>
-        <Box
-          x={0}
-          y={1}
-          selection={edgeSelections['x0y1']}
-          player={currentPlayer}
-          onClick={handleClick}
-          onOwnerFulfilled={handleOwnerFulfilled}
-        />
-        <Box
-          x={1}
-          y={1}
-          selection={edgeSelections['x1y1']}
-          player={currentPlayer}
-          onClick={handleClick}
-          onOwnerFulfilled={handleOwnerFulfilled}
-        />
-      </div>
-    </div>
-  )
-}
+      <FlexBox marginBottom="16px">
+        <FlexItem>Player Red Score: {player1Score}</FlexItem>
+        <FlexItem flex="0 0 auto">Player Blue Score: {player2Score}</FlexItem>
+      </FlexBox>
 
-const Box = (props) => {
-  // const [edge, setEdge] = useState({})
-  const handleEdgeClick = (edge) => {
-    // setEdge((stateEdge) =>
-    //   Object.assign({}, stateEdge, {[edgeClick]: props.player})
-    // )
-    props.onClick({
-      x: props.x,
-      y: props.y,
-      edge,
-      selection: Object.assign({}, props.selection, {
-        [edge]: props.player,
-      }),
-    })
-
-    if (Object.values(props.selection).length >= 3) {
-      props.onOwnerFulfilled({
-        x: props.x,
-        y: props.y,
-        player: props.player,
-      })
-    }
-  }
-
-  // useEffect(() => {
-  //   if (
-  //     props.selection.top &&
-  //     props.selection.right &&
-  //     props.selection.bottom &&
-  //     props.selection.left
-  //   ) {
-  //     props.onOwnerFulfilled({
-  //       x: props.x,
-  //       y: props.y,
-  //       player: props.player,
-  //     })
-  //   }
-  // }, [props.selection])
-
-  return (
-    <div style={{display: 'inline-block'}}>
-      <div>{props.selection.owner}</div>
-      <button
-        type="button"
-        disabled={!!props.selection.top}
-        onClick={() => handleEdgeClick('top')}
-      >
-        top edge {props.selection.top}
-      </button>
-      <button
-        type="button"
-        disabled={!!props.selection.right}
-        onClick={() => handleEdgeClick('right')}
-      >
-        right edge {props.selection.right}
-      </button>
-      <button
-        type="button"
-        disabled={!!props.selection.bottom}
-        onClick={() => handleEdgeClick('bottom')}
-      >
-        bottom edge {props.selection.bottom}
-      </button>
-      <button
-        type="button"
-        disabled={!!props.selection.left}
-        onClick={() => handleEdgeClick('left')}
-      >
-        left edge {props.selection.left}
-      </button>
+      {[...Array(GRID_SIZE)].map((_, rowIndex) => {
+        return (
+          <BoxRowSC key={`row-${rowIndex}`}>
+            {[...Array(GRID_SIZE)].map((_, columnIndex) => (
+              <Box
+                key={`x${columnIndex}y${rowIndex}`}
+                x={columnIndex}
+                y={rowIndex}
+                selection={edgeSelections[`x${columnIndex}y${rowIndex}`]}
+                player={currentPlayer}
+                onClick={handleClick}
+              />
+            ))}
+          </BoxRowSC>
+        )
+      })}
     </div>
   )
 }
