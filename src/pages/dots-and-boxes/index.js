@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 
 // Components
+import ButtonPrimary from 'components/button-primary'
 import Card from 'components/card'
 import FlexBox from 'components/flex-box'
 import FlexItem from 'components/flex-item'
@@ -66,6 +67,7 @@ const DotsAndBoxes = () => {
   const [currentPlayer, setPlayerTurn] = useState(1)
   const [player1Score, setPlayer1Score] = useState(0)
   const [player2Score, setPlayer2Score] = useState(0)
+  const [isGameOver, setGameOver] = useState(false)
 
   const handleClick = ({x, y, selection, edge}) => {
     const isTarget3sided = checkBoxFulfilled(edgeSelections[`x${x}y${y}`])
@@ -103,12 +105,32 @@ const DotsAndBoxes = () => {
     }
   }
 
+  useEffect(() => {
+    if (player1Score + player2Score === GRID_SIZE * GRID_SIZE) {
+      setGameOver(true)
+    }
+  }, [player1Score, player2Score])
+
+  const onReset = () => {
+    setEdgeSelection(map)
+    setPlayerTurn(1)
+    setPlayer1Score(0)
+    setPlayer2Score(0)
+    setGameOver(false)
+  }
+
   return (
     <div>
       <FlexBox marginBottom="16px">
         <FlexItem>Player Red Score: {player1Score}</FlexItem>
         <FlexItem flex="0 0 auto">Player Blue Score: {player2Score}</FlexItem>
       </FlexBox>
+
+      {isGameOver && (
+        <FlexBox marginBottom="16px" justifyContent="center">
+          <ButtonPrimary onClick={onReset}>Play Again</ButtonPrimary>
+        </FlexBox>
+      )}
 
       {[...Array(GRID_SIZE)].map((_, rowIndex) => {
         return (
